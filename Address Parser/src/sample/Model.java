@@ -1,37 +1,43 @@
 package sample;
 
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
 public class Model {
-    private Set<String> streets, cities, zipcode;
+    private List<String> streets, cities, zipcode;
 
     public Model(){
-        streets = new TreeSet<>();
-        cities = new TreeSet<>();
-        zipcode = new TreeSet<>();
-        createData("cities.txt", cities);
-        createData("streets.txt", streets);
-        createData("zipcode.txt", zipcode);
+        streets = new ArrayList<>();
+        cities = new ArrayList<>();
+        zipcode = new ArrayList<>();
+        createData("cities.txt");
+        createData("streets.txt");
+        createData("zipcode.txt");
     }
-    public Set<String> getStreets(){
+    public List<String> getStreets(){
         return streets;
     }
-    public Set<String> getCities(){
-        return cities;
+    public void getCities(){
+        createData("cities.txt");
     }
-    public Set<String> getZipcode(){
+    public List<String> getZipcode(){
         return zipcode;
     }
-    private void createData(String file, Set<String> listName) {
-        Scanner sc;
-        try {
-            sc = new Scanner(new File(file), "UTF-8");
+    private void createData(String file) {
+        Scanner in;
+        StringBuilder sb;
 
-            while (sc.hasNext()) {
-                listName.add(sc.nextLine());
+        try {
+            in = new Scanner(new FileReader(file));
+            sb = new StringBuilder();
+            while (in.hasNext()) {
+                sb.append(in.next());
             }
+            in.close();
+            System.out.println("hey");
+            System.out.println(sb.toString());
         } catch (IOException e) {
             e.getMessage();
         }

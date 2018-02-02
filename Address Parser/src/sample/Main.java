@@ -14,10 +14,13 @@ public class Main extends Application {
         primaryStage.setTitle("Address Parser");
         primaryStage.setScene(new Scene(root, 1280, 780));
         primaryStage.show();
+
     }
 
 
     public static void main(String[] args) {
-        launch(args);
+        Model model = new Model();
+        model.getCities();
+        //launch(args);
     }
 }

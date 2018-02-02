@@ -36,7 +36,7 @@ public class Controller implements Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         streetInput.getEntries().addAll(model.getStreets());
-        cityInput.getEntries().addAll(model.getCities());
+        //cityInput.getEntries().addAll(model.getCities());
         zipcodeInput.getEntries().addAll(model.getZipcode());
     }
 }
