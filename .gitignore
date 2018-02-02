@@ -23,3 +23,10 @@ hs_err_pid*
 
 # Dist folders
 dist
+
+.DS_Store
+.idea/
+.idea/*
+out
+out/*
+*.iml
