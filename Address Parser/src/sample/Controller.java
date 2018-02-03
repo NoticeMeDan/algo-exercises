@@ -5,11 +5,20 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable{
-    private Model model = new Model();
+    private Model model;
+
+    {
+        try {
+            model = new Model();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
 
     public TextField input;
     public Button enter;
@@ -35,8 +44,8 @@ public class Controller implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        streetInput.getEntries().addAll(model.getStreets());
+        //streetInput.getEntries().addAll(model.getStreets());
         //cityInput.getEntries().addAll(model.getCities());
-        zipcodeInput.getEntries().addAll(model.getZipcode());
+        //zipcodeInput.getEntries().addAll(model.getZipcode());
     }
 }
