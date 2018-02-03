@@ -5,8 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class Main extends Application {
@@ -23,8 +21,10 @@ public class Main extends Application {
 
     public static void main(String[] args) throws IOException {
         Model model = new Model();
-        model.getCities();
-        //FileReader reader = new FileReader("cities.txt",);
+        System.out.println(model.getCities());
+        System.out.println(model.getStreets());
+        System.out.println(model.getZipcode());
+
         //launch(args);
     }
 }
