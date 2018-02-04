@@ -25,8 +25,8 @@ hs_err_pid*
 dist
 
 .DS_Store
-.idea/
-.idea/*
+Address Parser/.idea/
+Address Parser/.idea/*
 out
 out/*
 *.xml
