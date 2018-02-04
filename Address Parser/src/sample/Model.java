@@ -6,11 +6,12 @@ import java.util.*;
 public class Model {
     private List<String> streets, cities, zipcode;
 
-    public Model() throws FileNotFoundException {
-        cities = addData("/Users/Vilfred/Desktop/ITU/2. semester/Algorithms/Algo Git/algo-exercises/Address Parser/src/resources/textfiles/cities.txt");
-        streets = addData("/Users/Vilfred/Desktop/ITU/2. semester/Algorithms/Algo Git/algo-exercises/Address Parser/src/resources/textfiles/streets.txt");
-        zipcode = addData("/Users/Vilfred/Desktop/ITU/2. semester/Algorithms/Algo Git/algo-exercises/Address Parser/src/resources/textfiles/zipcode.txt");
+    public Model() throws IOException {
+        cities = addData("/textfiles/cities.txt");
+        streets = addData("/textfiles/streets.txt");
+        zipcode = addData("/textfiles/zipcode.txt");
     }
+
     public List<String> getCities(){
         return cities;
     }
@@ -21,20 +22,18 @@ public class Model {
         return zipcode;
     }
 
-    private ArrayList<String> addData(String file){
-        File loadFile = new File(file);
-        ArrayList<String> list = new ArrayList<>();
-        try {
-            Scanner scanner = new Scanner(loadFile);
-            while (scanner.hasNextLine()) {
-                list.add(scanner.nextLine());
-            }
+    private List<String> addData(String path) throws IOException {
+        List<String> list = new ArrayList<>();
+        InputStream res =
+                Main.class.getResourceAsStream(path);
 
-        } catch (FileNotFoundException e) {
-            //TODO: Show popup
-            System.out.println("Couldn't find file!");
-            System.exit(1);
+        BufferedReader reader =
+                new BufferedReader(new InputStreamReader(res));
+        String line;
+        while ((line = reader.readLine()) != null) {
+            list.add(line);
         }
+        reader.close();
         return list;
     }
 }

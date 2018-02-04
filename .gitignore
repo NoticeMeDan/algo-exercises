@@ -29,4 +29,8 @@ dist
 .idea/*
 out
 out/*
+*.xml
 *.iml
+
+
+

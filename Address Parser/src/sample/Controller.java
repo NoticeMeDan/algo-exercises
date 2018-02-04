@@ -6,16 +6,16 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class Controller implements Initializable{
     private Model model;
-
     {
         try {
             model = new Model();
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
