@@ -78,7 +78,7 @@ public class GiantBook {
                 int p = StdRandom.uniform(N);
                 int q = StdRandom.uniform(N);
                 
-                if (!uf.connected(p, q) || p == q) continue;
+                if (uf.connected(p, q) || p == q) continue;
                 
                 uf.union(p, q);
                 experimentLap++;
@@ -102,11 +102,11 @@ public class GiantBook {
     private static boolean experimentEvaluationPass() {
         boolean evaluationPassed = true;
         if (N > 1000) {
-            if (StdStats.stddev(giantEmergences) > StdStats.mean(giantEmergences) / 8.5)
+            if (StdStats.stddev(giantEmergences) > StdStats.mean(giantEmergences) / 10)
                 evaluationPassed = false;
-            if (StdStats.stddev(noisolatedEmergences) > StdStats.mean(noisolatedEmergences) / 8.5)
+            if (StdStats.stddev(noisolatedEmergences) > StdStats.mean(noisolatedEmergences) / 10)
                 evaluationPassed = false;
-            if (StdStats.stddev(connectedEmergences) > StdStats.mean(connectedEmergences) / 8.5)
+            if (StdStats.stddev(connectedEmergences) > StdStats.mean(connectedEmergences) / 10)
                 evaluationPassed = false;
         }
         
