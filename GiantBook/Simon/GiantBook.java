@@ -78,9 +78,8 @@ public class GiantBook {
                 int p = StdRandom.uniform(N);
                 int q = StdRandom.uniform(N);
                 
-                if (uf.connected(p, q) || p == q) continue;
+                if (!uf.connected(p, q) && p != q) uf.union(p, q);
                 
-                uf.union(p, q);
                 experimentLap++;
             }
             
