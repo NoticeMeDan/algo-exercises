@@ -75,12 +75,10 @@ public class GiantBook {
                 }
                 
                 // Randomly union two nodes with values between 0 and N (exlusive)
-                // Note that the uniform method prevents these two numbers of being identical
-                // If uniform is not used, use and if statement two check if p == q
                 int p = StdRandom.uniform(N);
                 int q = StdRandom.uniform(N);
                 
-                if (!uf.connected(p, q)) continue;
+                if (!uf.connected(p, q) || p == q) continue;
                 
                 uf.union(p, q);
                 experimentLap++;
