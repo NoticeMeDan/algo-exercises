@@ -2,12 +2,15 @@
 T: 100
 N: 100000
 
-Giant Component: 69326.33
-Giant Component (stddev): 179.85791558332875
+Giant Component: 69319.4
+Giant Component (stddev): 198.16562810340287
+Time elapsed: 0.018679462605554874 seconds
 
-No Isolated: 597224.42
-No Isolated (stddev): 54584.72774109341
+No Isolated: 608648.07
+No Isolated (stddev): 69299.70565612351
+Time elapsed: 0.025639495653653904 seconds
 
-Connected: 597224.42
-Connected (stddev): 54584.72774109341
+Connected: 608648.07
+Connected (stddev): 69299.70565612351
+Time elapsed: 0.02564773800253084 seconds
 ----------------------------------------

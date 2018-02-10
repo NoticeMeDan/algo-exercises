@@ -6,11 +6,17 @@ public class GiantBook {
     private static int initialT;
     private static int T = 10;
     private static int N = 100;
+    
+    private static Stopwatch stopwatch;
 
     // three lists of test testresult (to take average from later)
     private static int[] giantEmergences;
     private static int[] noisolatedEmergences;
     private static int[] connectedEmergences;
+    
+    private static double[] giantComponentElapsedTimes;
+    private static double[] noisolatedElapsedTimes;
+    private static double[] connectedElapsedTimes;
     
     // Takes T and N as args in the order: T, N
     public static void main(String[] args) {
@@ -41,8 +47,10 @@ public class GiantBook {
     
     // The actual experiment
     private static void startExperiment(int t) {
+        
         // run the experiment t times
         for (int i = 0; i < t; i++) {
+            stopwatch = new Stopwatch();
             boolean activeExperiment = true;
             // Log
             int experimentLap = 0;
@@ -59,18 +67,24 @@ public class GiantBook {
                 
                 // Check if giant components has emerged
                 // Log the experimentLap if so
-                if (giantEmerged == -1 && uf.getBiggestComponentSize() > N / 2) 
+                if (giantEmerged == -1 && uf.getBiggestComponentSize() > N / 2) {
                     giantEmerged = experimentLap;
+                    giantComponentElapsedTimes[i] = stopwatch.elapsedTime();
+                }
+                
                 
                 // Check if no isolated has emerged
                 // Log the experimentLap if so
-                if (noisolatedEmerged == -1 && uf.noIndividualsIsIsolated()) 
+                if (noisolatedEmerged == -1 && uf.noIndividualsIsIsolated()) {
                     noisolatedEmerged = experimentLap;
+                    noisolatedElapsedTimes[i] = stopwatch.elapsedTime();
+                }
                 
                 // Check if the network is one big component
                 // Log the experimentLap and end the experiment if so
                 if (uf.count() == 1) {
                     connectedEmerged = experimentLap;
+                    connectedElapsedTimes[i] = stopwatch.elapsedTime();
                     activeExperiment = false;
                 }
                 
@@ -95,17 +109,20 @@ public class GiantBook {
         giantEmergences = new int[t];
         noisolatedEmergences = new int[t];
         connectedEmergences = new int[t];
+        giantComponentElapsedTimes = new double[t];
+        noisolatedElapsedTimes = new double[t];
+        connectedElapsedTimes = new double[t];
     }
     
     // Evaluate if standard deviation is too high (and therefor test-results is useless)
     private static boolean experimentEvaluationPass() {
         boolean evaluationPassed = true;
         if (N > 1000) {
-            if (StdStats.stddev(giantEmergences) > StdStats.mean(giantEmergences) / 10)
+            if (StdStats.stddev(giantEmergences) > StdStats.mean(giantEmergences) / 7.5)
                 evaluationPassed = false;
-            if (StdStats.stddev(noisolatedEmergences) > StdStats.mean(noisolatedEmergences) / 10)
+            if (StdStats.stddev(noisolatedEmergences) > StdStats.mean(noisolatedEmergences) / 7.5)
                 evaluationPassed = false;
-            if (StdStats.stddev(connectedEmergences) > StdStats.mean(connectedEmergences) / 10)
+            if (StdStats.stddev(connectedEmergences) > StdStats.mean(connectedEmergences) / 7.5)
                 evaluationPassed = false;
         }
         
@@ -122,12 +139,17 @@ public class GiantBook {
         sb.append("\n");
         sb.append("Giant Component: " + StdStats.mean(giantEmergences) + "\n");
         sb.append("Giant Component (stddev): " + StdStats.stddev(giantEmergences) + "\n");
+        sb.append("Time elapsed: " + StdStats.stddev(giantComponentElapsedTimes) + " seconds\n");
         sb.append("\n");
         sb.append("No Isolated: " + StdStats.mean(noisolatedEmergences) + "\n");
         sb.append("No Isolated (stddev): " + StdStats.stddev(noisolatedEmergences) + "\n");
+        sb.append("Time elapsed: " + StdStats.stddev(noisolatedElapsedTimes) + " seconds\n");
         sb.append("\n");
         sb.append("Connected: " + StdStats.mean(connectedEmergences) + "\n");
         sb.append("Connected (stddev): " + StdStats.stddev(connectedEmergences) + "\n");
+        sb.append("Time elapsed: " + StdStats.stddev(connectedElapsedTimes) + " seconds\n");
+        sb.append("\n");
+        
         
         StdOut.println(sb);
         createReport(sb);

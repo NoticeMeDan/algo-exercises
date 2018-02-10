@@ -1,0 +1,13 @@
+----------------------------------------
+T: 100
+N: 100
+
+Giant Component: 74.37
+Giant Component (stddev): 6.898477360910154
+
+No Isolated: 258.63
+No Isolated (stddev): 62.134532274815605
+
+Connected: 259.47
+Connected (stddev): 61.34279488944471
+----------------------------------------
