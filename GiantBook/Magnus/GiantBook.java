@@ -25,7 +25,11 @@ public class GiantBook{
 
         initializeElements();
         start();
-        calculateData();
+        if(experimentEvaluationPass()){
+            calculateData();
+            }else {
+                System.out.print("Evaluation failed...");
+            }
     }
 
     public static void start() {
@@ -41,7 +45,7 @@ public class GiantBook{
                 }
 
                 if (uf.getGreatestComponent() >= (N / 2) && giantComponent == -1) {
-                    giantComponent = iteration;
+                    giantComponent = iteration; 
                 }
 
                 if(uf.count()==1){
@@ -86,5 +90,18 @@ public class GiantBook{
         StdOut.println("NonisolatedNetwork stddev: " + StdStats.stddev(nonisolatedNetwork));
         StdOut.println("ConnectedNetworks mean: " + StdStats.mean(connectedNetwork));
         StdOut.println("ConnectedNetworks stddev: " + StdStats.stddev(connectedNetwork));
+    }
+
+     private static boolean experimentEvaluationPass() {
+        boolean evaluationPassed = true;
+        if (N > 1000) {
+            if (StdStats.stddev(giantComponents) > StdStats.mean(giantComponents) / 7.5)
+                evaluationPassed = false;
+            if (StdStats.stddev(nonisolatedNetwork) > StdStats.mean(nonisolatedNetwork) / 7.5)
+                evaluationPassed = false;
+            if (StdStats.stddev(connectedNetwork) > StdStats.mean(connectedNetwork) / 7.5)
+                evaluationPassed = false;
+        }
+        return evaluationPassed;
     }
 }
