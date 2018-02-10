@@ -1,11 +1,15 @@
+import java.util.*;
+
 public class MyUnionFind{	
-	private int[] parent;   // parent[i] = parent of i
+   private int[] parent;   // parent[i] = parent of i
     private int[] size;     // size[i] = number of sites in subtree rooted at i
     private int count;      // number of components
+    private int greatestComponent; // component with most connected nodes
+    private HashSet<Integer> isolatedComponents; // Contains all isolated nodes
 
     /**
      * Initializes an empty union–find data structure with {@code n} sites
-     * {@code 0} through {@code n-1}. Each site is initially in its own 
+     * {@code 0} through {@code n-1}. Each site is initially in its own
      * component.
      *
      * @param  n the number of sites
@@ -15,9 +19,12 @@ public class MyUnionFind{
         count = n;
         parent = new int[n];
         size = new int[n];
+        greatestComponent = 1;                                  //  <--- NEW*
+        isolatedComponents = new HashSet<Integer>();            //  <--- NEW*
         for (int i = 0; i < n; i++) {
             parent[i] = i;
             size[i] = 1;
+            isolatedComponents.add(i);                          //  <--- NEW*
         }
     }
 
@@ -29,7 +36,7 @@ public class MyUnionFind{
     public int count() {
         return count;
     }
-  
+
     /**
      * Returns the component identifier for the component containing site {@code p}.
      *
@@ -48,7 +55,7 @@ public class MyUnionFind{
     private void validate(int p) {
         int n = parent.length;
         if (p < 0 || p >= n) {
-            throw new IllegalArgumentException("index " + p + " is not between 0 and " + (n-1));  
+            throw new IllegalArgumentException("index " + p + " is not between 0 and " + (n-1));
         }
     }
 
@@ -67,7 +74,7 @@ public class MyUnionFind{
     }
 
     /**
-     * Merges the component containing site {@code p} with the 
+     * Merges the component containing site {@code p} with the
      * the component containing site {@code q}.
      *
      * @param  p the integer representing one site
@@ -84,11 +91,31 @@ public class MyUnionFind{
         if (size[rootP] < size[rootQ]) {
             parent[rootP] = rootQ;
             size[rootQ] += size[rootP];
-        }
-        else {
+
+            // updates the greatest component                   //  |
+            if (greatestComponent < size[rootQ]) {                //  |<-- NEW*
+                greatestComponent = size[rootQ];                //  |
+            }
+        } else {
             parent[rootQ] = rootP;
             size[rootP] += size[rootQ];
+
+
+            // updates the greatest component                   //  |
+            if (greatestComponent < size[rootP]) {                //  |<-- NEW*
+                greatestComponent = size[rootP];                //  |
+            }
+
+            isolatedComponents.remove(rootQ);                       //  <--- NEW*
+            isolatedComponents.remove(rootP);                       //  <--- NEW*
+            count--;
         }
-        count--;
     }
+        public int getGreatestComponent(){                          //  <--- NEW*
+            return greatestComponent;
+        }
+
+        public boolean nonIsolatedComponents(){                     //  <--- NEW*
+            return isolatedComponents.isEmpty();
+        }
 }
