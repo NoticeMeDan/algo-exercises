@@ -119,7 +119,7 @@ public class MyUnionFind {
             size[rootP] += size[rootQ];
             
             // (M) Update biggestComponentSize
-            if (size[rootP] > biggestComponentSize) biggestComponentSize = size[rootQ];
+            if (size[rootP] > biggestComponentSize) biggestComponentSize = size[rootP];
         }
         
         isolatedIndividuals.remove(rootP);

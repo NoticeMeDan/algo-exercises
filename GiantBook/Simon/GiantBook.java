@@ -67,7 +67,7 @@ public class GiantBook {
                 
                 // Check if giant components has emerged
                 // Log the experimentLap if so
-                if (giantEmerged == -1 && uf.getBiggestComponentSize() > N / 2) {
+                if (giantEmerged == -1 && uf.getBiggestComponentSize() > N / 10) {
                     giantEmerged = experimentLap;
                     giantComponentElapsedTimes[i] = stopwatch.elapsedTime();
                 }
