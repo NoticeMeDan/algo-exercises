@@ -6,11 +6,14 @@ import java.util.*;
 public class GiantBook{
 	//T = Times we run the experiment, N = Number of nodes. 
 	private int initalT, T, N;
+
 	//The arrays in which the time of events will be placed. 
 	private int[] giantEmergences, connectedEmergences, noIsolatedEmergences;
+
 	//Stop time to time the events
 	private Stopwatch stopwatch;
 
+	//Arrays to store timestamps
 	private double[] giantElapsedTime, connectedElapsedTime, noIsolatedElapsedTime;
 
 	public void run(int t, int n){
@@ -33,7 +36,6 @@ public class GiantBook{
 
 		GiantBook gb = new GiantBook();
 		gb.run(t,n);
-
 	}
 
 	private void initiateExperiment(){
@@ -61,6 +63,7 @@ public class GiantBook{
 		this.giantEmergences		= new int[this.T];
 		this.connectedEmergences 	= new int[this.T];
 		this.noIsolatedEmergences	= new int[this.T];
+
 		//Stopclock array
 		this.giantElapsedTime			= new double[this.T];
 		this.connectedElapsedTime		= new double[this.T];
@@ -113,7 +116,8 @@ public class GiantBook{
 
 				//Check if p and q aren't connected and the same value.
 				if (!uf.connected(p, q) && p != q) uf.union(p, q);
-                //
+
+                //Go to next lap
                 experimentLap++;
 			}
 			//Adding the result to the list
@@ -168,6 +172,7 @@ public class GiantBook{
 	private void createReport(StringBuilder sb){
 		//Creaitng a name with the given T and N values
 		String randomName = this.T + "-" + this.N;
+
         //Creating the file
         File file = new File("reports/" + randomName + ".txt");
         
@@ -175,6 +180,7 @@ public class GiantBook{
         try {
             //Write into the file
             writer = new BufferedWriter(new FileWriter(file));
+            
             //Array of strings, splitted by \n
             String[] lines = sb.toString().split("\n");
             writer.write("----------------------------------------");

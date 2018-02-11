@@ -1,0 +1,16 @@
+----------------------------------------
+T: 100
+N: 10000
+
+Giant Component: 6937.66
+Giant Component (stddev): 49.489560168348284
+Time elapsed: 0.0012909944487358076 seconds
+
+No Isolated: 47779.89
+No Isolated (stddev): 5174.909725255644
+Time elapsed: 0.002122415243218554 seconds
+
+Connected: 47779.89
+Connected (stddev): 5174.909725255644
+Time elapsed: 0.002122415243218554 seconds
+----------------------------------------
