@@ -25,7 +25,7 @@ public class GiantBook{
 
 		this.initiateExperiment();
 	}
-	
+
 	public static void main(String[] args){
 		int t = 10;
 		int n = 100;
@@ -171,7 +171,7 @@ public class GiantBook{
 
 	//Create a txt file using StringBuilder and BufferedWriter
 	private void createReport(StringBuilder sb){
-		//Creaitng a name with the given T and N values
+		//Creating a name with the given T and N values
 		String randomName = this.T + "-" + this.N;
 
         //Creating the file
