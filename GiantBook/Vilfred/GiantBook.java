@@ -8,13 +8,17 @@ public class GiantBook{
 	private int initalT, T, N;
 	//The arrays in which the time of events will be placed. 
 	private int[] giantEmergences, connectedEmergences, noIsolatedEmergences;
+	//Stop time to time the events
+	private Stopwatch stopwatch;
+
+	private double[] giantElapsedTime, connectedElapsedTime, noIsolatedElapsedTime;
 
 	public void run(int t, int n){
 		this.T = t;
 		this.N = n;
 		this.initalT = t;
 
-		StdOut.printf("Input: N = %s, T = %s\n", this.N, this.T);
+		StdOut.printf("Input: T = %s, N = %s, \n", this.T, this.N);
 
 		this.initiateExperiment();
 	}
@@ -23,8 +27,8 @@ public class GiantBook{
 		int n = 100;
 
 		if (args.length == 2) {
-			n = Integer.parseInt(args[0]);
-			t = Integer.parseInt(args[1]);
+			t = Integer.parseInt(args[0]);
+			n = Integer.parseInt(args[1]);
 		}
 
 		GiantBook gb = new GiantBook();
@@ -57,6 +61,10 @@ public class GiantBook{
 		this.giantEmergences		= new int[this.T];
 		this.connectedEmergences 	= new int[this.T];
 		this.noIsolatedEmergences	= new int[this.T];
+		//Stopclock array
+		this.giantElapsedTime			= new double[this.T];
+		this.connectedElapsedTime		= new double[this.T];
+		this.noIsolatedElapsedTime		= new double[this.T];
 	}
 
 	private void startExperiment(){
@@ -66,6 +74,8 @@ public class GiantBook{
 			boolean activeExperiment = true; 
 			//to keep track of the lap
 			int experimentLap = 0;
+			//starting stopwatch
+			stopwatch = new Stopwatch();
 
 			//Set to -1 because lap 0 is a value, so we want this tracked.
 			int giantEmerged 		= -1;
@@ -80,16 +90,19 @@ public class GiantBook{
 				//checking for giantEmerged
 				if(giantEmerged == -1 && uf.getBiggestComponentSize() > this.N/2){
 					giantEmerged = experimentLap;
+					giantElapsedTime[i] = stopwatch.elapsedTime();
 				}
 
 				//checking for noIsolatedEmerged
 				if(noIsolatedEmerged == -1 && uf.noIndividualsIsIsolated()){
 					noIsolatedEmerged = experimentLap;
+					noIsolatedElapsedTime[i] = stopwatch.elapsedTime();
 				}
 
 				//checking if all are connected
 				if(uf.count() == 1){
 					connectedEmerged = experimentLap;
+					connectedElapsedTime[i] = stopwatch.elapsedTime();
 					//If everything is connected, the experiment ends.
 					activeExperiment = false; 
 				}
@@ -135,15 +148,15 @@ public class GiantBook{
 		sb.append("\n");
 		sb.append("Giant Component: " + StdStats.mean(this.giantEmergences) + "\n");
         sb.append("Giant Component (stddev): " + StdStats.stddev(this.giantEmergences) + "\n");
-
+		sb.append("Time elapsed: " + StdStats.stddev(giantElapsedTime) + " seconds\n");
         sb.append("\n");
         sb.append("No Isolated: " + StdStats.mean(this.noIsolatedEmergences) + "\n");
         sb.append("No Isolated (stddev): " + StdStats.stddev(this.noIsolatedEmergences) + "\n");
-
+        sb.append("Time elapsed: " + StdStats.stddev(noIsolatedElapsedTime) + " seconds\n");
         sb.append("\n");
         sb.append("Connected: " + StdStats.mean(this.connectedEmergences) + "\n");
         sb.append("Connected (stddev): " + StdStats.stddev(this.connectedEmergences) + "\n");
-
+        sb.append("Time elapsed: " + StdStats.stddev(connectedElapsedTime) + " seconds\n");
         sb.append("\n");
 
         StdOut.println(sb);
@@ -183,6 +196,4 @@ public class GiantBook{
         StdOut.println("T is extended, and experiment is restarted...");
         StdOut.println();
     }
-
-
 }
