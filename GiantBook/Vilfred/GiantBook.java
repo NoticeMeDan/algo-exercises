@@ -25,6 +25,7 @@ public class GiantBook{
 
 		this.initiateExperiment();
 	}
+	
 	public static void main(String[] args){
 		int t = 10;
 		int n = 100;
@@ -180,7 +181,7 @@ public class GiantBook{
         try {
             //Write into the file
             writer = new BufferedWriter(new FileWriter(file));
-            
+
             //Array of strings, splitted by \n
             String[] lines = sb.toString().split("\n");
             writer.write("----------------------------------------");
