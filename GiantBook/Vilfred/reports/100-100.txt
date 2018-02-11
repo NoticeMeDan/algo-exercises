@@ -2,15 +2,17 @@
 T: 100
 N: 100
 
-Giant Component: 75.56
-Giant Component (stddev): 7.69404859864973
-Time elapsed: 3.333333333333332E-4 seconds
+Giant Component: 74.15
+Giant Component (stddev): 5.893627786418862
+Time elapsed: 3.0748244591432286E-4 seconds
 
-No Isolated: 258.73
-No Isolated (stddev): 55.66527942383237
-Time elapsed: 4.653661532230897E-4 seconds
+No Isolated: 274.73
+No Isolated (stddev): 70.50852158541984
+Time elapsed: 4.02517331328978E-4 seconds
 
-Connected: 260.48
-Connected (stddev): 54.944136919403704
-Time elapsed: 4.934930126509933E-4 seconds
+Connected: 275.98
+Connected (stddev): 70.26184504186372
+Time elapsed: 4.02517331328978E-4 seconds
+
+Total time 0.014
 ----------------------------------------

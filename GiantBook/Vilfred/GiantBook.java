@@ -15,6 +15,7 @@ public class GiantBook{
 
 	//Arrays to store timestamps
 	private double[] giantElapsedTime, connectedElapsedTime, noIsolatedElapsedTime;
+	private double totalTime;
 
 	public void run(int t, int n){
 		this.T = t;
@@ -72,6 +73,7 @@ public class GiantBook{
 	}
 
 	private void startExperiment(){
+		Stopwatch totalTimeWatch = new Stopwatch();
 		//We will run the loop to fill the arrays
 		for(int i = 0; i<this.T; i++){
 			//As long as continue = true, run the experiment
@@ -126,6 +128,7 @@ public class GiantBook{
 			this.connectedEmergences[i] = connectedEmerged;
 			this.noIsolatedEmergences[i] = noIsolatedEmerged;
 		}
+		this.totalTime = totalTimeWatch.elapsedTime();
 	}
 
 	private boolean experimentPass(){
@@ -163,6 +166,7 @@ public class GiantBook{
         sb.append("Connected (stddev): " + StdStats.stddev(this.connectedEmergences) + "\n");
         sb.append("Time elapsed: " + StdStats.stddev(connectedElapsedTime) + " seconds\n");
         sb.append("\n");
+        sb.append("Total time " + totalTime + "\n");
 
         StdOut.println(sb);
         createReport(sb);
