@@ -1,0 +1,26 @@
+1.5.5
+
+10^9 sites
+10^6 input pairs
+Computer can execute 10^9 instructions per second
+
+The object initialization makes ~10^9 instructions (1 for initializing the count variable, 1 for creating the parents array
+and 10^9 for initializing each parent)
+Each find operation makes 1 instruction
+Each union operation makes ~10^9 instructions (1 for each find(), 1 for comparing parents of the components being united, 
+10^9 for comparing parents, 1 to 10^9 for updating parents and 1 for reducing the count of components)
+
+For 10^6 input pairs, the total number of instructions required (I) is:
+I = M x IU x MI
+
+Where M is the number of input pairs, IU is the number of instructions in the union operation and MI is the number of machine instructions per iteration of the inner for loop.
+
+I = 10^6 x 10^9 x 10
+I = 10^16
+
+Seconds needed = 10^16 / 10^9
+Seconds needed = 10^7
+
+10^7 seconds = 166 minutes = 2,777 hours = ~115 days
+
+Thanks for kaustubhb (https://github.com/kaustubhb) for noting that the MI parameter was missing in the formula.

@@ -1,0 +1,8 @@
+2.4.42 - Preorder heaps
+
+The number of compares is very similar with a heap-ordered tree represented both in preorder and in level order.
+
+Array Size |  Number of Compares Level Order |  Number of Compares Pre Order
+      1000                             16778                           16867
+   1000000                          36793814                        36793541
+ 100000000                        5012882149                      5012874464

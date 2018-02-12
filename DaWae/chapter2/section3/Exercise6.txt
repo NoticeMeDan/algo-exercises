@@ -1,0 +1,6 @@
+2.3.6
+
+Array Size |   Compares |  Expected Compares
+       100          817                  921
+      1000        12898                13816
+     10000       170322               184207
