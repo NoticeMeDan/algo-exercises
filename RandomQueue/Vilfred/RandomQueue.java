@@ -14,24 +14,26 @@ public class RandomQueue<Item> implements Iterable<Item>
     private Item[] items;
     private int size;
     
+    @SuppressWarnings("unchecked")
     public RandomQueue() { 
         this.size = 0;
         this.items = (Item[]) new Object[1]; 
     }
-
+    
+    @SuppressWarnings("unchecked")
     private void resize(int capacity) {
-            Item[] temp = (Item[]) new Object[capacity];
+        Item[] temp = (Item[]) new Object[capacity];
 
-            for (int i = 0; i < this.size; i++) {
-                temp[i] = this.items[i];
-            }
+        for (int i = 0; i < this.size; i++) {
+            temp[i] = this.items[i];
+        }
 
-            this.items = temp;
+        this.items = temp;
     }
 
-    public boolean isEmpty() {return this.items.length == null; }
+    public boolean isEmpty() {return this.size == 0; }
 
-    public int size() { return this.n; }
+    public int size() { return this.size; }
 
     public void enqueue(Item item) {
         if(this.size == this.items.length) {
@@ -51,7 +53,7 @@ public class RandomQueue<Item> implements Iterable<Item>
 
         return randomItem;
     }
-    
+
     public Item dequeue(){ // remove and return a random item
         if(this.isEmpty()) throw new NoSuchElementException("Queue underflow");
         
@@ -65,7 +67,7 @@ public class RandomQueue<Item> implements Iterable<Item>
         this.size--;
 
         if(this.size > 0 && this.size == this.items.length / 4) {
-                resize(items.length / 2);
+            resize(items.length / 2);
         }
 
         return randomItem;
@@ -76,26 +78,47 @@ public class RandomQueue<Item> implements Iterable<Item>
     }
 
     private class RandomQueueIterator implements Iterator<Item> {
-        RandomQueueIterator RandomIterator;
+        int index;
+        Item[] arrayCopy;
         
+        @SuppressWarnings("unchecked")
         public RandomQueueIterator() {
-            RandomIterator = new RandomQueueIterator();
-        
+            this.index = 0;
+            this.arrayCopy = (Item[]) new Object[items.length];
+            
+            copyArray();
+            shuffleArray();
         }
 
-        public boolean hasNext()  { return current != null;   }
+        public boolean hasNext()  { return this.index < size;   }
 
         public void remove()      { throw new UnsupportedOperationException();  }
 
         public Item next() {
             if (!hasNext()) throw new NoSuchElementException();
-            Item item = current.item;
-            current = current.next; 
+            Item item = arrayCopy[index];
+            this.index++;
             return item;
+        }
+
+        public void copyArray(){
+            for(int i = 0; i < size;i++){
+                this.arrayCopy[i] = items[i];
+            }
+        }
+
+        public void shuffleArray(){
+            for(int i = 0; i < size; i++){
+                int randomIndex = StdRandom.uniform(0, size);
+
+                Item temp = arrayCopy[i];
+                arrayCopy[i] = arrayCopy[randomIndex];
+                arrayCopy[randomIndex] = temp;
+            }
         }
     }
     
-  // The main method below tests your implementation. Do not change it.
+    //The main method below tests your implementation. Do not change it.
     public static void main(String args[]){
     // Build a queue containing the Integers 1,2,...,6:
     RandomQueue<Integer> Q= new RandomQueue<Integer>();
