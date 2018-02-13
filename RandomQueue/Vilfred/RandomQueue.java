@@ -24,10 +24,7 @@ public class RandomQueue<Item> implements Iterable<Item>
     private void resize(int capacity) {
         Item[] temp = (Item[]) new Object[capacity];
 
-        for (int i = 0; i < this.size; i++) {
-            temp[i] = this.items[i];
-        }
-
+        for (int i = 0; i < this.size; i++) { temp[i] = this.items[i]; }
         this.items = temp;
     }
 
@@ -36,9 +33,7 @@ public class RandomQueue<Item> implements Iterable<Item>
     public int size() { return this.size; }
 
     public void enqueue(Item item) {
-        if(this.size == this.items.length) {
-            resize(this.items.length * 2);
-        }
+        if(this.size == this.items.length) { resize(this.items.length * 2); }
 
         this.items[size] = item;
         this.size++;
@@ -66,9 +61,7 @@ public class RandomQueue<Item> implements Iterable<Item>
         this.items[size - 1] = null;
         this.size--;
 
-        if(this.size > 0 && this.size == this.items.length / 4) {
-            resize(items.length / 2);
-        }
+        if(this.size > 0 && this.size == this.items.length / 4) { resize(this.items.length / 2); }
 
         return randomItem;
     }
@@ -110,7 +103,6 @@ public class RandomQueue<Item> implements Iterable<Item>
         public void shuffleArray(){
             for(int i = 0; i < size; i++){
                 int randomIndex = StdRandom.uniform(0, size);
-
                 Item temp = arrayCopy[i];
                 arrayCopy[i] = arrayCopy[randomIndex];
                 arrayCopy[randomIndex] = temp;
