@@ -67,7 +67,7 @@ public class RandomQueue<Item> implements Iterable<Item>
     }
 
     public Iterator<Item> iterator() { // return an iterator over the items in random order
-        return new RandomQueueIterator();
+        return new RandomQueueIterator(Arrays.copyOf(this.items));
     }
 
     private class RandomQueueIterator implements Iterator<Item> {
@@ -75,11 +75,10 @@ public class RandomQueue<Item> implements Iterable<Item>
         Item[] arrayCopy;
         
         @SuppressWarnings("unchecked")
-        public RandomQueueIterator() {
+        public RandomQueueIterator(Item[] items) {
             this.index = 0;
-            this.arrayCopy = (Item[]) new Object[items.length];
+            this.arrayCopy = items;
             
-            copyArray();
             shuffleArray();
         }
 
@@ -94,18 +93,12 @@ public class RandomQueue<Item> implements Iterable<Item>
             return item;
         }
 
-        public void copyArray(){
-            for(int i = 0; i < size;i++){
-                this.arrayCopy[i] = items[i];
-            }
-        }
-
         public void shuffleArray(){
             for(int i = 0; i < size; i++){
                 int randomIndex = StdRandom.uniform(0, size);
-                Item temp = arrayCopy[i];
-                arrayCopy[i] = arrayCopy[randomIndex];
-                arrayCopy[randomIndex] = temp;
+                Item temp = this.arrayCopy[i];
+                this.arrayCopy[i] = this.arrayCopy[randomIndex];
+                this.arrayCopy[randomIndex] = temp;
             }
         }
     }
