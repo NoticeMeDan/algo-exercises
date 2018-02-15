@@ -69,7 +69,7 @@ public class RandomQueue<T> implements Iterable<T> {
 			temp[i] = items[i];
 		}
 
-		items = temp;
+		this.items = temp;
 	}
 
 	public Iterator<T> iterator() { // return an iterator over the items in random order
