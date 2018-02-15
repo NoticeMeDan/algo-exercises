@@ -69,7 +69,7 @@ public class RandomQueue<T> implements Iterable<T> {
 			temp[i] = items[i];
 		}
 
-		items = temp;
+		this.items = temp;
 	}
 
 	public Iterator<T> iterator() { // return an iterator over the items in random order
@@ -80,7 +80,6 @@ public class RandomQueue<T> implements Iterable<T> {
 		int index;
 		T[] q;
 
-		@SuppressWarnings("unchecked")
 		public RandomQueueIterator(T[] items) {
 			this.index = 0;
 			this.q = items;
@@ -94,6 +93,7 @@ public class RandomQueue<T> implements Iterable<T> {
 
 		public T next() {
 			if (!hasNext()) throw new NoSuchElementException();
+
 			T item = q[index];
 			this.index++;
 			return item;
