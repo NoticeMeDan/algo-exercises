@@ -1,0 +1,502 @@
+FILE:  [ints-100-0.txt]
+false
+
+FILE:  [ints-100-1.txt]
+true
+Index: val[15] , vals[25] , vals[68] , vals[91].
+Values: -6431897687704817498 , -4964420948893066024 , 3831662765844904176 , 7564655870752979346
+
+FILE:  [ints-100-2.txt]
+false
+
+FILE:  [ints-100-3.txt]
+false
+
+FILE:  [ints-100-4.txt]
+false
+
+FILE:  [ints-200-1.txt]
+true
+Index: val[36] , vals[50] , vals[139] , vals[180].
+Values: -6431897687704817498 , -4964420948893066024 , 3831662765844904176 , 7564655870752979346
+
+FILE:  [ints-200-2.txt]
+false
+
+FILE:  [ints-200-3.txt]
+false
+
+FILE:  [ints-200-4.txt]
+false
+
+FILE:  [ints-400-0.txt]
+false
+
+FILE:  [ints-400-1.txt]
+true
+Index: val[66] , vals[98] , vals[279] , vals[361].
+Values: -6431897687704817498 , -4964420948893066024 , 3831662765844904176 , 7564655870752979346
+
+FILE:  [ints-400-2.txt]
+false
+
+FILE:  [ints-400-3.txt]
+false
+
+FILE:  [ints-400-4.txt]
+false
+
+FILE:  [ints-800-0.txt]
+false
+
+FILE:  [ints-800-1.txt]
+true
+Index: val[126] , vals[187] , vals[551] , vals[726].
+Values: -6431897687704817498 , -4964420948893066024 , 3831662765844904176 , 7564655870752979346
+
+FILE:  [ints-800-2.txt]
+false
+
+FILE:  [ints-800-3.txt]
+false
+
+FILE:  [ints-800-4.txt]
+false
+
+Complete...
+FILE:  [ints-100-0.txt]
+false
+
+FILE:  [ints-100-1.txt]
+true
+Index: val[15] , vals[25] , vals[68] , vals[91].
+Values: -6431897687704817498 , -4964420948893066024 , 3831662765844904176 , 7564655870752979346
+
+FILE:  [ints-100-2.txt]
+false
+
+FILE:  [ints-100-3.txt]
+false
+
+FILE:  [ints-100-4.txt]
+false
+
+FILE:  [ints-200-1.txt]
+true
+Index: val[36] , vals[50] , vals[139] , vals[180].
+Values: -6431897687704817498 , -4964420948893066024 , 3831662765844904176 , 7564655870752979346
+
+FILE:  [ints-200-2.txt]
+false
+
+FILE:  [ints-200-3.txt]
+false
+
+FILE:  [ints-200-4.txt]
+false
+
+FILE:  [ints-400-0.txt]
+false
+
+FILE:  [ints-400-1.txt]
+true
+Index: val[66] , vals[98] , vals[279] , vals[361].
+Values: -6431897687704817498 , -4964420948893066024 , 3831662765844904176 , 7564655870752979346
+
+FILE:  [ints-400-2.txt]
+false
+
+FILE:  [ints-400-3.txt]
+false
+
+FILE:  [ints-400-4.txt]
+false
+
+FILE:  [ints-800-0.txt]
+false
+
+FILE:  [ints-800-1.txt]
+true
+Index: val[126] , vals[187] , vals[551] , vals[726].
+Values: -6431897687704817498 , -4964420948893066024 , 3831662765844904176 , 7564655870752979346
+
+FILE:  [ints-800-2.txt]
+false
+
+FILE:  [ints-800-3.txt]
+false
+
+FILE:  [ints-800-4.txt]
+false
+
+Complete...FILE:  [ints-100-0.txt]
+false
+
+FILE:  [ints-100-1.txt]
+true
+Index: val[15] , vals[25] , vals[68] , vals[91].
+Values: -6431897687704817498 , -4964420948893066024 , 3831662765844904176 , 7564655870752979346
+
+FILE:  [ints-100-2.txt]
+false
+
+FILE:  [ints-100-3.txt]
+false
+
+FILE:  [ints-100-4.txt]
+false
+
+FILE:  [ints-200-1.txt]
+true
+Index: val[36] , vals[50] , vals[139] , vals[180].
+Values: -6431897687704817498 , -4964420948893066024 , 3831662765844904176 , 7564655870752979346
+
+FILE:  [ints-200-2.txt]
+false
+
+FILE:  [ints-200-3.txt]
+false
+
+FILE:  [ints-200-4.txt]
+false
+
+FILE:  [ints-400-0.txt]
+false
+
+FILE:  [ints-400-1.txt]
+true
+Index: val[66] , vals[98] , vals[279] , vals[361].
+Values: -6431897687704817498 , -4964420948893066024 , 3831662765844904176 , 7564655870752979346
+
+FILE:  [ints-400-2.txt]
+false
+
+FILE:  [ints-400-3.txt]
+false
+
+FILE:  [ints-400-4.txt]
+FILE:  [ints-100-0.txt]
+false
+
+FILE:  [ints-100-1.txt]
+true
+Index: val[15] , vals[25] , vals[68] , vals[91].
+Values: -6431897687704817498 , -4964420948893066024 , 3831662765844904176 , 7564655870752979346
+
+FILE:  [ints-100-2.txt]
+false
+
+FILE:  [ints-100-3.txt]
+false
+
+FILE:  [ints-100-4.txt]
+false
+
+FILE:  [ints-200-1.txt]
+true
+Index: val[36] , vals[50] , vals[139] , vals[180].
+Values: -6431897687704817498 , -4964420948893066024 , 3831662765844904176 , 7564655870752979346
+
+FILE:  [ints-200-2.txt]
+false
+
+FILE:  [ints-200-3.txt]
+false
+
+FILE:  [ints-200-4.txt]
+false
+
+FILE:  [ints-400-0.txt]
+false
+
+FILE:  [ints-400-1.txt]
+true
+Index: val[66] , vals[98] , vals[279] , vals[361].
+Values: -6431897687704817498 , -4964420948893066024 , 3831662765844904176 , 7564655870752979346
+
+FILE:  [ints-400-2.txt]
+false
+
+FILE:  [ints-400-3.txt]
+false
+
+FILE:  [ints-400-4.txt]
+false
+
+FILE:  [ints-800-0.txt]
+false
+
+FILE:  [ints-800-1.txt]
+true
+Index: val[126] , vals[187] , vals[551] , vals[726].
+Values: -6431897687704817498 , -4964420948893066024 , 3831662765844904176 , 7564655870752979346
+
+FILE:  [ints-800-2.txt]
+false
+
+FILE:  [ints-800-3.txt]
+false
+
+FILE:  [ints-800-4.txt]
+false
+
+FILE:  [ints-100-0.txt]
+false
+
+FILE:  [ints-100-1.txt]
+true
+Index: val[15] , vals[25] , vals[68] , vals[91].
+Values: -6431897687704817498 , -4964420948893066024 , 3831662765844904176 , 7564655870752979346
+
+FILE:  [ints-100-2.txt]
+false
+
+FILE:  [ints-100-3.txt]
+false
+
+FILE:  [ints-100-4.txt]
+false
+
+FILE:  [ints-200-1.txt]
+true
+Index: val[36] , vals[50] , vals[139] , vals[180].
+Values: -6431897687704817498 , -4964420948893066024 , 3831662765844904176 , 7564655870752979346
+
+FILE:  [ints-200-2.txt]
+false
+
+FILE:  [ints-200-3.txt]
+false
+
+FILE:  [ints-200-4.txt]
+false
+
+FILE:  [ints-400-0.txt]
+false
+
+FILE:  [ints-400-1.txt]
+true
+Index: val[66] , vals[98] , vals[279] , vals[361].
+Values: -6431897687704817498 , -4964420948893066024 , 3831662765844904176 , 7564655870752979346
+
+FILE:  [ints-400-2.txt]
+false
+
+FILE:  [ints-400-3.txt]
+false
+
+FILE:  [ints-400-4.txt]
+false
+
+FILE:  [ints-800-0.txt]
+false
+
+FILE:  [ints-800-1.txt]
+true
+Index: val[126] , vals[187] , vals[551] , vals[726].
+Values: -6431897687704817498 , -4964420948893066024 , 3831662765844904176 , 7564655870752979346
+
+FILE:  [ints-800-2.txt]
+false
+
+FILE:  [ints-800-3.txt]
+false
+
+FILE:  [ints-800-4.txt]
+false
+
+FILE:  [ints-100-0.txt]
+false
+
+FILE:  [ints-100-1.txt]
+true
+Index: val[15] , vals[25] , vals[68] , vals[91].
+Values: -6431897687704817498 , -4964420948893066024 , 3831662765844904176 , 7564655870752979346
+
+FILE:  [ints-100-2.txt]
+false
+
+FILE:  [ints-100-3.txt]
+false
+
+FILE:  [ints-100-4.txt]
+false
+
+FILE:  [ints-200-1.txt]
+true
+Index: val[36] , vals[50] , vals[139] , vals[180].
+Values: -6431897687704817498 , -4964420948893066024 , 3831662765844904176 , 7564655870752979346
+
+FILE:  [ints-200-2.txt]
+false
+
+FILE:  [ints-200-3.txt]
+false
+
+FILE:  [ints-200-4.txt]
+false
+
+FILE:  [ints-400-0.txt]
+false
+
+FILE:  [ints-400-1.txt]
+true
+Index: val[66] , vals[98] , vals[279] , vals[361].
+Values: -6431897687704817498 , -4964420948893066024 , 3831662765844904176 , 7564655870752979346
+
+FILE:  [ints-400-2.txt]
+false
+
+FILE:  [ints-400-3.txt]
+false
+
+FILE:  [ints-400-4.txt]
+false
+
+FILE:  [ints-800-0.txt]
+false
+
+FILE:  [ints-800-1.txt]
+true
+Index: val[126] , vals[187] , vals[551] , vals[726].
+Values: -6431897687704817498 , -4964420948893066024 , 3831662765844904176 , 7564655870752979346
+
+FILE:  [ints-800-2.txt]
+false
+
+FILE:  [ints-800-3.txt]
+false
+
+FILE:  [ints-800-4.txt]
+false
+
+FILE:  [ints-100-0.txt]
+false
+
+FILE:  [ints-100-1.txt]
+true
+Index: val[15] , vals[25] , vals[68] , vals[91].
+Values: -6431897687704817498 , -4964420948893066024 , 3831662765844904176 , 7564655870752979346
+
+FILE:  [ints-100-2.txt]
+false
+
+FILE:  [ints-100-3.txt]
+false
+
+FILE:  [ints-100-4.txt]
+false
+
+FILE:  [ints-200-1.txt]
+true
+Index: val[36] , vals[50] , vals[139] , vals[180].
+Values: -6431897687704817498 , -4964420948893066024 , 3831662765844904176 , 7564655870752979346
+
+FILE:  [ints-200-2.txt]
+false
+
+FILE:  [ints-200-3.txt]
+false
+
+FILE:  [ints-200-4.txt]
+false
+
+FILE:  [ints-400-0.txt]
+false
+
+FILE:  [ints-400-1.txt]
+true
+Index: val[66] , vals[98] , vals[279] , vals[361].
+Values: -6431897687704817498 , -4964420948893066024 , 3831662765844904176 , 7564655870752979346
+
+FILE:  [ints-400-2.txt]
+false
+
+FILE:  [ints-400-3.txt]
+false
+
+FILE:  [ints-400-4.txt]
+false
+
+FILE:  [ints-800-0.txt]
+false
+
+FILE:  [ints-800-1.txt]
+true
+Index: val[126] , vals[187] , vals[551] , vals[726].
+Values: -6431897687704817498 , -4964420948893066024 , 3831662765844904176 , 7564655870752979346
+
+FILE:  [ints-800-2.txt]
+false
+
+FILE:  [ints-800-3.txt]
+false
+
+FILE:  [ints-800-4.txt]
+false
+
+FILE:  [ints-100-0.txt]
+false
+
+FILE:  [ints-100-1.txt]
+true
+Index: val[15] , vals[25] , vals[68] , vals[91].
+Values: -6431897687704817498 , -4964420948893066024 , 3831662765844904176 , 7564655870752979346
+
+FILE:  [ints-100-2.txt]
+false
+
+FILE:  [ints-100-3.txt]
+false
+
+FILE:  [ints-100-4.txt]
+false
+
+FILE:  [ints-200-1.txt]
+true
+Index: val[36] , vals[50] , vals[139] , vals[180].
+Values: -6431897687704817498 , -4964420948893066024 , 3831662765844904176 , 7564655870752979346
+
+FILE:  [ints-200-2.txt]
+false
+
+FILE:  [ints-200-3.txt]
+false
+
+FILE:  [ints-200-4.txt]
+false
+
+FILE:  [ints-400-0.txt]
+false
+
+FILE:  [ints-400-1.txt]
+true
+Index: val[66] , vals[98] , vals[279] , vals[361].
+Values: -6431897687704817498 , -4964420948893066024 , 3831662765844904176 , 7564655870752979346
+
+FILE:  [ints-400-2.txt]
+false
+
+FILE:  [ints-400-3.txt]
+false
+
+FILE:  [ints-400-4.txt]
+false
+
+FILE:  [ints-800-0.txt]
+false
+
+FILE:  [ints-800-1.txt]
+true
+Index: val[126] , vals[187] , vals[551] , vals[726].
+Values: -6431897687704817498 , -4964420948893066024 , 3831662765844904176 , 7564655870752979346
+
+FILE:  [ints-800-2.txt]
+false
+
+FILE:  [ints-800-3.txt]
+false
+
+FILE:  [ints-800-4.txt]
+false
+
