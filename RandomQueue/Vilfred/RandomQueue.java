@@ -67,7 +67,7 @@ public class RandomQueue<Item> implements Iterable<Item>
     }
 
     public Iterator<Item> iterator() { // return an iterator over the items in random order
-        return new RandomQueueIterator(Arrays.copyOf(this.items));
+        return new RandomQueueIterator(items);
     }
 
     private class RandomQueueIterator implements Iterator<Item> {
