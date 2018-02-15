@@ -1,7 +1,9 @@
 #!/bin/bash
 javac Faster.java
+mkdir -p Input
 
-for filename in ..../data/*.txt; do
+
+for filename in ../data/*.txt; do
 	echo "File: " [$(basename "${filename}")]
 	start=`date +%s`
 	java-algs4 Faster < "$filename"
