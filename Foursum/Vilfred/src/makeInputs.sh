@@ -1,0 +1,32 @@
+
+javac Weed.java
+java Weed 100 0 > ../data/ints-100-0.txt
+java Weed 100 1 > ../data/ints-100-1.txt
+java Weed 100 2 > ../data/ints-100-2.txt
+java Weed 100 3 > ../data/ints-100-3.txt
+java Weed 100 4 > ../data/ints-100-4.txt
+java Weed 100 0 > ../data/ints-100-0.txt
+java Weed 200 1 > ../data/ints-200-1.txt
+java Weed 200 2 > ../data/ints-200-2.txt
+java Weed 200 3 > ../data/ints-200-3.txt
+java Weed 200 4 > ../data/ints-200-4.txt
+java Weed 400 0 > ../data/ints-400-0.txt
+java Weed 400 1 > ../data/ints-400-1.txt
+java Weed 400 2 > ../data/ints-400-2.txt
+java Weed 400 3 > ../data/ints-400-3.txt
+java Weed 400 4 > ../data/ints-400-4.txt
+java Weed 800 0 > ../data/ints-800-0.txt
+java Weed 800 1 > ../data/ints-800-1.txt
+java Weed 800 2 > ../data/ints-800-2.txt
+java Weed 800 3 > ../data/ints-800-3.txt
+java Weed 800 4 > ../data/ints-800-4.txt
+java Weed 1600 0 > ../data/ints-1600-0.txt
+java Weed 1600 1 > ../data/ints-1600-1.txt
+java Weed 1600 2 > ../data/ints-1600-2.txt
+java Weed 1600 3 > ../data/ints-1600-3.txt
+java Weed 1600 4 > ../data/ints-1600-4.txt
+java Weed 3200 0 > ../data/ints-3200-0.txt
+java Weed 3200 1 > ../data/ints-3200-1.txt
+java Weed 3200 2 > ../data/ints-3200-2.txt
+java Weed 3200 3 > ../data/ints-3200-3.txt
+java Weed 3200 4 > ../data/ints-3200-4.txt
