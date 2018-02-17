@@ -13,7 +13,7 @@ public class Simple {
 				for(int k = j+1; k < N; k++){
 					for(int l = k+1; l < N; l++){
 						if (vals[i] + vals[j] + vals[k] + vals[l] == 0) {
-						    System.err.println(i+" "+j+" "+k+" "+l);
+						    System.out.println(i+" "+j+" "+k+" "+l);
 						    System.out.println(true);
 						    System.exit(0);
 						}

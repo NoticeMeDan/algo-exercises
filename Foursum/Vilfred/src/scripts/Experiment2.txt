@@ -1,3 +1,0 @@
-File:  [*.txt]
-Seconds for completion: 1 
- 

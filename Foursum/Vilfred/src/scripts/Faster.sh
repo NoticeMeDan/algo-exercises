@@ -1,7 +1,6 @@
 #!/bin/bash
-javac Faster.java
-mkdir -p Input
-
+cd ..
+javac-algs4 Faster.java
 
 for filename in ../data/*.txt; do
 	echo "File: " [$(basename "${filename}")]

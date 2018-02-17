@@ -1,18 +1,13 @@
-#!/bin/bash
-
-timestamp() {
-  date +"%T"
-}
-
-mkdir -p Input
-
+#! /bin/bash
+cd ..
+javac-algs4 Simple.java 
 
 for filename in ../data/*.txt; do
-	for ((i = 0; i<=3; i++)) do
-		start=`date +%s`
-		java-algs4 Simple < "$filename"
-		end=`date +%s`
+	echo "File: " [$(basename "${filename}")]
+	start=`date +%s`
+	java-algs4 Simple < "$filename"
+	end=`date +%s`
 
-		echo $((end - start))
-	done
+	printf "Seconds for completion: $((end - start)) \n \n"
+	#echo $((end - start))
 done
