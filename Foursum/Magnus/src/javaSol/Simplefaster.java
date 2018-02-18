@@ -22,7 +22,6 @@ public class Simplefaster
 		    			System.out.println("Values: " + vals[i] + " , " + vals[j] + " , " + vals[k] + " , " + vals[l]);
 		    			System.out.println();
 			    		System.exit(0);
-			    		System.err.println("Complete...");
 					}
         		}
         	}
