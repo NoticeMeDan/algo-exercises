@@ -22,7 +22,7 @@ public class GiantBook{
 		this.N = n;
 		this.initalT = t;
 
-		StdOut.printf("Input: T = %s, N = %s, \n", this.T, this.N);
+		StdOut.println(this.T);
 
 		this.initiateExperiment();
 	}

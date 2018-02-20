@@ -1,0 +1,25 @@
+FILE:  [ints-100-0.txt]
+False
+Seconds for completion: 1 
+ 
+FILE:  [ints-100-1.txt]
+
+True
+Index: val[15] , vals[25] , vals[68] , vals[91].
+Values: -6431897687704817498 , -4964420948893066024 , 3831662765844904176 , 7499354754298413200
+
+Seconds for completion: 1 
+ 
+FILE:  [ints-100-2.txt]
+False
+Seconds for completion: 1 
+ 
+FILE:  [ints-100-3.txt]
+False
+Seconds for completion: 1 
+ 
+FILE:  [ints-100-4.txt]
+False
+Seconds for completion: 0 
+ 
+FILE:  [ints-1600-0.txt]
