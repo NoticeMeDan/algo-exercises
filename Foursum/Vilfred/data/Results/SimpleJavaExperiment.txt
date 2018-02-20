@@ -1,0 +1,75 @@
+File:  [ints-100-0.txt]
+false
+Seconds for completion: 0 
+ 
+File:  [ints-100-1.txt]
+38 43 51 64
+true
+Seconds for completion: 1 
+ 
+File:  [ints-100-2.txt]
+false
+Seconds for completion: 0 
+ 
+File:  [ints-100-3.txt]
+false
+Seconds for completion: 0 
+ 
+File:  [ints-100-4.txt]
+false
+Seconds for completion: 0 
+ 
+File:  [ints-1600-0.txt]
+false
+Seconds for completion: 192 
+ 
+File:  [ints-1600-1.txt]
+227 317 904 977
+true
+Seconds for completion: 88 
+ 
+File:  [ints-1600-2.txt]
+false
+Seconds for completion: 195 
+ 
+File:  [ints-1600-3.txt]
+false
+Seconds for completion: 192 
+ 
+File:  [ints-1600-4.txt]
+false
+Seconds for completion: 189 
+ 
+File:  [ints-200-1.txt]
+97 105 172 185
+true
+Seconds for completion: 0 
+ 
+File:  [ints-200-2.txt]
+false
+Seconds for completion: 1 
+ 
+File:  [ints-200-3.txt]
+false
+Seconds for completion: 0 
+ 
+File:  [ints-200-4.txt]
+false
+Seconds for completion: 0 
+ 
+File:  [ints-3200-0.txt]
+Seconds for completion: 1583 
+ 
+File:  [ints-3200-1.txt]
+Seconds for completion: 0 
+ 
+File:  [ints-3200-2.txt]
+Seconds for completion: 0 
+ 
+File:  [ints-3200-3.txt]
+Seconds for completion: 0 
+ 
+File:  [ints-3200-4.txt]
+Seconds for completion: 0 
+ 
+File:  [ints-400-0.txt]
