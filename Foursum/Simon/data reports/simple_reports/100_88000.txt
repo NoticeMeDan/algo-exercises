@@ -1,0 +1,6 @@
+----------------------------------------
+Array of size: 100
+Minimum Value: 0.007 seconds
+Maximum Value: 0.01 seconds
+Mean Value: 0.0086 seconds
+----------------------------------------
