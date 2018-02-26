@@ -7,8 +7,6 @@ public class Faster{
 		int N 		= Integer.parseInt(S.nextLine());
 		long[] vals = new long[N];
 
-		
-
 		for(int i = 0; i < N; i++) vals[i] = Long.parseLong(S.nextLine());
 
 		Arrays.sort(vals);
@@ -19,7 +17,7 @@ public class Faster{
 					int l = Arrays.binarySearch(vals, -1 * (vals[i] + vals[j] + vals[k]));
 					if(l>k){
 						System.out.println("true");
-						System.out.println(vals[i] + " " + vals[j] + " " + vals[k] + " " + l);
+						//System.out.println(vals[i] + " " + vals[j] + " " + vals[k] + " " + l);
 						System.exit(0);
 					}
 				}
