@@ -1,0 +1,7 @@
+Some die rolls: 1 4 2 2 4 2 2 3 1 5 2 5 3 6 4 6 3 6 1 1 4 5 6 1 4 5 1 6 2
+Mean (should be around 3.5): 3.4961
+Standard deviation (should be around 1.7): 1.7037
+Removing 6 4 1
+2 8 9 5 3 7
+Two colours from first shuffle: green blue
+Entire second shuffle: yellow red green blue
