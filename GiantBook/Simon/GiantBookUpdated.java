@@ -1,12 +1,13 @@
 import edu.princeton.cs.algs4.*;
+import java.util.*;
+import java.awt.*;
 import java.io.*;
 import java.text.*;
 
-public class GiantBook {
+public class GiantBookUpdated {
     private static int initialT;
-    private static int T = 10;
-    private static int N = 100;
-    
+    private static int N, T = 1;
+    private static ArrayList<Point> unionPairs;
     private static Stopwatch stopwatch;
 
     // three lists of test testresult (to take average from later)
@@ -20,12 +21,16 @@ public class GiantBook {
     
     // Takes T and N as args in the order: T, N
     public static void main(String[] args) {
-        if (args.length > 0) {
-            T = Integer.parseInt(args[0]);
-            N = Integer.parseInt(args[1]);
+        unionPairs = new ArrayList<>();
+        N = StdIn.readInt();
+        while (!StdIn.isEmpty()) {
+            int p = StdIn.readInt();
+            int q = StdIn.readInt();
+            Point pair = new Point(p, q);
+            unionPairs.add(pair);
         }
-        initialT = T;
         
+        initialT = T;
         initiateExperiment(T);
     }
     
@@ -36,8 +41,10 @@ public class GiantBook {
         
         // If standard deviation is to high (experimentEvaluationPass() is false)
         // then add initialT to T and rerun the experiment
-        if (experimentEvaluationPass())
-            produceStatistics();
+        if (experimentEvaluationPass()) {
+            printOutput();
+            //produceStatistics();
+        }
         else {
             showRejectMessage();
             T += initialT;
@@ -63,13 +70,14 @@ public class GiantBook {
             MyUnionFind uf = new MyUnionFind(N);
             
             // Keep linking nodes as long as needed (until the whole network is one big component)
-            while (activeExperiment) {
+            while (activeExperiment && experimentLap < unionPairs.size()) {
                 
                 // Check if giant components has emerged
                 // Log the experimentLap if so
-                if (giantEmerged == -1 && uf.getBiggestComponentSize() > N / 10) {
+                if (giantEmerged == -1 && uf.getBiggestComponentSize() > N / 2) {
                     giantEmerged = experimentLap;
                     giantComponentElapsedTimes[i] = stopwatch.elapsedTime();
+                    StdOut.println("Giant Comp: " + uf.getBiggestComponentSize() + " at i = " + experimentLap);
                 }
                 
                 
@@ -78,6 +86,7 @@ public class GiantBook {
                 if (noisolatedEmerged == -1 && uf.noIndividualsIsIsolated()) {
                     noisolatedEmerged = experimentLap;
                     noisolatedElapsedTimes[i] = stopwatch.elapsedTime();
+                    StdOut.println("No isolated: " + uf.noIndividualsIsIsolated() + " at i = " + experimentLap);
                 }
                 
                 // Check if the network is one big component
@@ -86,13 +95,17 @@ public class GiantBook {
                     connectedEmerged = experimentLap;
                     connectedElapsedTimes[i] = stopwatch.elapsedTime();
                     activeExperiment = false;
+                    StdOut.println("Component count: " + uf.count() + " at i = " + experimentLap);
                 }
                 
                 // Randomly union two nodes with values between 0 and N (exlusive)
-                int p = StdRandom.uniform(N);
-                int q = StdRandom.uniform(N);
+                int p = new Double(unionPairs.get(experimentLap).getX()).intValue();
+                int q = new Double(unionPairs.get(experimentLap).getY()).intValue();
                 
                 if (!uf.connected(p, q) && p != q) uf.union(p, q);
+                
+                StdOut.println("Link: " + p + " and " + q + " at i = " + experimentLap);
+                
                 
                 experimentLap++;
             }
@@ -149,9 +162,12 @@ public class GiantBook {
         sb.append("Time elapsed: " + StdStats.stddev(connectedElapsedTimes) + " seconds\n");
         sb.append("\n");
 
-        //StdOut.println(sb);
-        createReport(sb);
-        //StdOut.println("A report has been generated");
+        //createReport(sb);
+    }
+    
+    // Satisfy the CodeJugde God with the correct outputs
+    private static void printOutput() {
+        StdOut.println(N + " " + StdStats.mean(noisolatedEmergences) + " " + StdStats.mean(giantEmergences) + " " + StdStats.mean(connectedEmergences));
     }
     
     // Create new txt-file and write the StringBuilder to it

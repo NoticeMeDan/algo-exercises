@@ -1,0 +1,6 @@
+----------------------------------------
+Array of size: 400
+Minimum Value: 0.297 seconds
+Maximum Value: 0.824 seconds
+Mean Value: 0.6424 seconds
+----------------------------------------

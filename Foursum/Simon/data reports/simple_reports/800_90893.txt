@@ -1,0 +1,6 @@
+----------------------------------------
+Array of size: 800
+Minimum Value: 11.591 seconds
+Maximum Value: 19.499 seconds
+Mean Value: 17.8432 seconds
+----------------------------------------
