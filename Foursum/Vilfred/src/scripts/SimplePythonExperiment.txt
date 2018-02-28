@@ -64,3 +64,12 @@ False
 Seconds for completion: 403 
  
 File:  [ints-800-0.txt]
+Seconds for completion: 4750 
+ 
+File:  [ints-800-1.txt]
+Seconds for completion: 1 
+ 
+File:  [ints-800-2.txt]
+Seconds for completion: 0 
+ 
+File:  [ints-800-3.txt]
