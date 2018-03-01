@@ -1,6 +1,7 @@
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+import edu.princeton.cs.algs4.*;
 
 /**
  *  The {@code MaxPQ} class represents a priority queue of generic keys.
