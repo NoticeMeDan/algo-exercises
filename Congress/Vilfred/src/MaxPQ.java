@@ -44,9 +44,7 @@ public class MaxPQ<Key> implements Iterable<Key> {
     /**
      * Initializes an empty priority queue.
      */
-    public MaxPQ() {
-        this(1);
-    }
+    public MaxPQ() { this(1); }
 
     /**
      * Initializes an empty priority queue with the given initial capacity,
@@ -66,9 +64,7 @@ public class MaxPQ<Key> implements Iterable<Key> {
      *
      * @param  comparator the order in which to compare the keys
      */
-    public MaxPQ(Comparator<Key> comparator) {
-        this(1, comparator);
-    }
+    public MaxPQ(Comparator<Key> comparator) { this(1, comparator); }
 
     /**
      * Initializes a priority queue from the array of keys.
@@ -94,18 +90,14 @@ public class MaxPQ<Key> implements Iterable<Key> {
      * @return {@code true} if this priority queue is empty;
      *         {@code false} otherwise
      */
-    public boolean isEmpty() {
-        return n == 0;
-    }
+    public boolean isEmpty() { return n == 0; }
 
     /**
      * Returns the number of keys on this priority queue.
      *
      * @return the number of keys on this priority queue
      */
-    public int size() {
-        return n;
-    }
+    public int size() { return n; }
 
     /**
      * Returns a largest key on this priority queue.
@@ -203,9 +195,7 @@ public class MaxPQ<Key> implements Iterable<Key> {
     }
 
     // is pq[1..N] a max heap?
-    private boolean isMaxHeap() {
-        return isMaxHeap(1);
-    }
+    private boolean isMaxHeap() { return isMaxHeap(1); }
 
     // is subtree of pq[1..n] rooted at k a max heap?
     private boolean isMaxHeap(int k) {
@@ -229,9 +219,7 @@ public class MaxPQ<Key> implements Iterable<Key> {
      *
      * @return an iterator that iterates over the keys in descending order
      */
-    public Iterator<Key> iterator() {
-        return new HeapIterator();
-    }
+    public Iterator<Key> iterator() { return new HeapIterator(); }
 
     private class HeapIterator implements Iterator<Key> {
 

@@ -3,7 +3,7 @@ public class State implements Comparable<State>{
 	private String name;
 	private double divisor;
 
-	public State(String name, int population){
+	State(String name, int population){
 		this.population 	= population;
 		this.name 			= name; 
 		this.numberOfseats 	= 0;
@@ -16,16 +16,9 @@ public class State implements Comparable<State>{
 		this.divisor = Math.sqrt(s*(s+1));
 	}
 
-	public int compareTo(State that){
-		return Double.compare(this.getPriority(), that.getPriority());
-	}
+	public int compareTo(State that) { return Double.compare(this.getPriority(), that.getPriority()); }
 
-	public double getPriority(){
-		return (double) this.population / this.divisor;
-	}
+	private double getPriority(){ return (double) this.population / this.divisor; }
 
-	public String toString(){
-		return String.format("%s %d", this.name, this.numberOfseats);
-	}
-
+	public String toString(){ return String.format("%s %d", this.name, this.numberOfseats); }
 }

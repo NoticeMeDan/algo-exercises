@@ -2,7 +2,7 @@ import edu.princeton.cs.algs4.*;
 import java.util.*;
 import java.lang.*;
 
-public class Congress <Key extends Comparable<Key>>{
+public class Congress {
 	private MaxPQ<State> pq;
 	private int availableSeats;
 
