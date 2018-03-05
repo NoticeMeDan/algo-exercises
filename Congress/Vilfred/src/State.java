@@ -16,7 +16,7 @@ public class State implements Comparable<State>{
 		this.divisor = Math.sqrt(s*(s+1));
 	}
 
-	public int compareTo(State that) { return Double.compare(this.getPriority(), that.getPriority()); }
+	public int compareTo(State that){ return Double.compare(this.getPriority(), that.getPriority()); }
 
 	private double getPriority(){ return (double) this.population / this.divisor; }
 

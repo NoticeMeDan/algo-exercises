@@ -45,10 +45,12 @@ public class Congress {
             String stateName = S.nextLine();
             int statePop = Integer.parseInt(S.nextLine());
             states[i] = new State(stateName, statePop);
+            
         }
         S.close();
 
         Congress c = new Congress(states, numSeats);
+
         c.assignSeats();
         System.out.print(c);
 	}
