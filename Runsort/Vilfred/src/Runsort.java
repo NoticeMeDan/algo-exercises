@@ -7,7 +7,6 @@ public class Runsort {
     public static void sort(Comparable[] a) {
         aux = new Comparable[a.length];
         sortFrom(a, 0);
-        aux = null;
     }
 
     // Sort the list starting from index "lo"
@@ -35,11 +34,6 @@ public class Runsort {
             i++;
         }
         return i;
-    }
-
-    // Is the list already sorted?
-    private static boolean isSorted(Comparable[] a) {
-        return Runsort.getRun(a,0) == a.length-1;
     }
 
     private static boolean less(Comparable v, Comparable w) {
