@@ -1,3 +1,5 @@
+import edu.princeton.cs.algs4.*;
+
 public class MergeBU {
 
     // This class should not be instantiated.
@@ -19,7 +21,6 @@ public class MergeBU {
             else if (less(aux[j], aux[i])) a[k] = aux[j++];
             else                           a[k] = aux[i++];
         }
-
     }
 
     /**
@@ -47,7 +48,6 @@ public class MergeBU {
     private static boolean less(Comparable v, Comparable w) {
         return v.compareTo(w) < 0;
     }
-
 
    /***************************************************************************
     *  Check if array is sorted - useful for debugging.
