@@ -1,6 +1,10 @@
 import edu.princeton.cs.algs4.*;
 import static java.lang.Integer.*;
 
+/**
+*	For local experimental purposes only
+*	Will not be handed in
+*/
 public class Exp {
 	public static void main(String[] args) {
 		HashPipe hashpipe = new HashPipe();

@@ -1,4 +1,6 @@
 // File: Tests.java
+// Basically a copy-paste from CodeJudge
+// Will not be handed in
 import edu.princeton.cs.algs4.StdDraw;
 import java.util.HashMap;
 import edu.princeton.cs.algs4.StdIn;

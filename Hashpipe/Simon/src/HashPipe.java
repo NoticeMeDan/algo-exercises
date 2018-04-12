@@ -21,11 +21,12 @@ public class HashPipe {
 	}
 	
 	public Integer get(String key) {
-		Pipe pipe = getPipeFromReference(rootPipe, key, (rootPipe.getHeight() -1));
+		Pipe pipe = getPipeFromReference(rootPipe, key, rootPipe.getHeight() -1);
 		if (pipe != null) return pipe.getValue();
 		return null;
 	}
 	
+	// TODO
 	public String floor(String key) {
 		return null;
 	}
