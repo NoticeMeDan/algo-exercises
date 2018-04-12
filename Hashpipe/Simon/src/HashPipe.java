@@ -16,13 +16,13 @@ public class HashPipe {
 
 	public void put(String key, Integer val) {
 		Pipe pipe = new Pipe(key, val);
-		setPipeReference(rootPipe, pipe);
+		setPipeReference(rootPipe, pipe, pipe.getHeight() - 1);
 		N++;
 	}
 	
 	public Integer get(String key) {
 		Pipe pipe = getPipeFromReference(rootPipe, key, (rootPipe.getHeight() -1));
-		StdOut.println(pipe);
+		if (pipe != null) return pipe.getValue();
 		return null;
 	}
 	
@@ -30,42 +30,41 @@ public class HashPipe {
 		return null;
 	}
 
-	public String control(String key) {
-		for (int i = rootPipe.getHeight() - 1; i >= 0; i--) {
-			if (rootPipe.getNextPipe(i) == null)
-				StdOut.println("Null at: " + i);
-			else
-				StdOut.println(rootPipe.getNextPipe(i).getKey() + " at: " + i);
-		}
-		return rootPipe.toString();
+	public String control(String key, int h) {
+		if (getTrailingZeros(key) < (h + 1)) return null;
+		Pipe pipe = getPipeFromReference(rootPipe, key, h);
+		if (pipe.getNextPipe(h) == null) return null;
+		else return pipe.getNextPipe(h).getKey();
 	}
 
-	private void setPipeReference(Pipe root, Pipe p) {
-		for (int height = p.getHeight() - 1; height >= 0; height--) {
-			if (root.getNextPipe(height) == null)
-				root.setNextPipe(p, height);
-			else {
-				if (root.getNextPipe(height).getKey().hashCode() > p.getKey().hashCode()) {
-					p.setNextPipe(root.getNextPipe(height), height);
-					root.setNextPipe(p, height);
-				}
-				else if (root.getNextPipe(height).getKey().hashCode() < p.getKey().hashCode()) {
-					root.getNextPipe(height).setNextPipe(p, height);
-				}
-				else break;
-			}
+	private void setPipeReference(Pipe root, Pipe p, int height) {
+		if (height < 0) return;
+		if (root.getNextPipe(height) == null) {
+			root.setNextPipe(p, height);
+			setPipeReference(root, p, height - 1);
 		}
+		if (root.getNextPipe(height).getKey().hashCode() > p.getKey().hashCode()) {
+			p.setNextPipe(root.getNextPipe(height), height);
+			root.setNextPipe(p, height);
+			setPipeReference(root, p, height - 1);
+		}
+		else if (root.getNextPipe(height).getKey().hashCode() < p.getKey().hashCode())
+			setPipeReference(root.getNextPipe(height), p, height);
 	}
 
 	private Pipe getPipeFromReference(Pipe p, String key, int height) {
-		if (height == 0) return null;
+		if (height < 0) return null;
 		if (p.getNextPipe(height) == null)
 			return getPipeFromReference(p, key, height - 1);
 		if (p.getNextPipe(height).getKey().hashCode() > key.hashCode())
 			return getPipeFromReference(p, key, height - 1);
-		if (p.getNextPipe(height).getKey().hashCode() < key.hashCode())
-			return getPipeFromReference(p.getNextPipe(height), key, height - 1);
-		return null;
+		else if (p.getNextPipe(height).getKey().hashCode() < key.hashCode())
+			return getPipeFromReference(p.getNextPipe(height), key, height);
+		else return p.getNextPipe(height);
+	}
+
+	private static Integer getTrailingZeros(String key) {
+		return Integer.parseInt(toBinaryString(numberOfTrailingZeros(key.hashCode()) + 1), 2);
 	}
 
 	private class Pipe {
@@ -84,7 +83,7 @@ public class HashPipe {
 		public Pipe(String key, int value) {
 			this.key = key;
 			this.value = value;
-			this.height = computeTrailingZeroHeight(key);
+			this.height = getTrailingZeros(key);
 			this.nextPipes = new Pipe[height];
 		}
 
@@ -97,9 +96,5 @@ public class HashPipe {
 		public void setNextPipe(Pipe pipe, int index) { this.nextPipes[index] = pipe; }
 
 		public Pipe getNextPipe(int index) { return nextPipes[index]; }
-
-		private int computeTrailingZeroHeight(String s) {
-			return Integer.parseInt(toBinaryString(numberOfTrailingZeros(key.hashCode()) + 1), 2);
-		}
 	}
 }
