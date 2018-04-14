@@ -1,0 +1,164 @@
+\documentclass[a4paper,11pt]{article}
+
+% Import packages
+\usepackage[a4paper]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{scrextend}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{adjustbox}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+\graphicspath{ {images/} }
+\DeclareGraphicsExtensions{.pdf,.jpeg,.png,.jpg}
+
+% Change enumerate environments you use letters
+\renewcommand{\theenumi}{\alph{enumi}}
+
+% Set title, author name and date
+\title{Hashpipe Report}
+\author{Simon Høiberg}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Abstract}
+\begin{addmargin}[1em]{2em}
+HashPipe.java is a symbol table implemented with a Hashpipe data structure.\\
+HashPipe supports search and insertion in time proportional to $O(Log N)$ on\\ average.\\
+\hspace{5mm}\\
+HashPipe contains the following API:\\
+\begin{verbatim}
+public HashPipe()
+public int size()
+public void put(String key, Integer val)
+public Integer get(String key)
+public String floor(String key)
+ \end{verbatim}
+\end{addmargin}
+
+
+
+
+\section*{Class design}
+\begin{addmargin}[1em]{2em}
+HashPipe uses a pointer-based data structure where each key-value pair is represented by a pipe.\\
+\hspace{5mm}\\
+Every pipe has a given height thus contains a pointer to the neighbour pipe(s).\\
+On instantiation, a root-pipe is created which solely represents pointers and every key-value pair that is put will be represented as new pipes.\\
+\hspace{5mm}\\
+The height of the root-pipe will be fixed at 32, and every new pipe will have it's height calculated deterministically.\\
+\newpage
+Every pipe is based in the following structure
+\begin{lstlisting}
+class Pipe {
+		String key;
+		int value;
+		int height;
+		Pipe[] nextPipes;
+
+		// Root pipe will be created with fixed height of 32
+		public Pipe()
+
+		// New pipe will be created given it's key-value pair
+		public Pipe(String key, int value)
+
+		public String getKey()
+
+		public int getValue()
+
+		public int getHeight()
+
+		public void setNextPipe(Pipe pipe, int index)
+
+		public Pipe getNextPipe(int index)
+	}
+\end{lstlisting}
+The field \textbf{Pipe[] nextPipes} will represent the height of the pipe with \textit{height} amount of pointers to the neighbour pipe(s).\\ 
+\hspace{5mm}\\
+The \textbf{put()} method works by following the root-pipe's pointers searching from top down and recursivly rearranging the pointers such that the key-value pipes will be ordered by key ascending fra left to right.\\
+\hspace{5mm}\\
+The \textbf{get()} method works by recursivly following the root-pipe's pointers searching from top down until a key-match is found or the bottom of the pipe is reached.\\
+The value of the pipe will be returned if key-match is found, null is returned otherwise.
+\end{addmargin}
+\newpage
+
+\section*{Performence tests}
+Following performence tests is done using CodeJudge\\
+\hspace{5mm}\\
+
+\textbf{TestsSmall}\\
+\hspace{5mm}\\
+\begin{adjustbox}{width=1\textwidth}
+\tiny
+\begin{tabular}{cccc}
+\hline
+\textit{Test} & \textit{Status} & \textit{CPU TIME} & \textit{WALL TIME} \\
+\hline
+Test01 & Succeeded & 0.32 s & 0.42 s \\
+Test02 & Succeeded & 0.17 s & 0.21 s \\
+Test03 & Succeeded & 0.13 s & 0.18 s \\
+\hline
+\end{tabular}
+\end{adjustbox}
+
+\hspace{5mm}\\
+\hspace{5mm}\\
+
+\textbf{TestsBest}\\
+\hspace{5mm}\\
+\begin{adjustbox}{width=1\textwidth}
+\tiny
+\begin{tabular}{cccc}
+\hline
+\textit{Test} & \textit{Status} & \textit{CPU TIME} & \textit{WALL TIME} \\
+\hline
+Test01 & Succeeded & 0.88 s & 0.93 s \\
+Test02 & Runtime error & 2.78s s & 2.97 s \\
+\hline
+\end{tabular}
+\end{adjustbox}
+
+\hspace{5mm}\\
+\hspace{5mm}\\
+
+\textbf{TestsBest}\\
+\hspace{5mm}\\
+\begin{adjustbox}{width=1\textwidth}
+\tiny
+\begin{tabular}{cccc}
+\hline
+\textit{Test} & \textit{Status} & \textit{CPU TIME} & \textit{WALL TIME} \\
+\hline
+Test01 & Succeeded & 0.54 s & 0.59 s \\
+Test02 & Succeeded & 1.12s s & 1.17 s \\
+\hline
+\end{tabular}
+\end{adjustbox}
+
+\end{document}

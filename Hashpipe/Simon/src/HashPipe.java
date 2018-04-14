@@ -3,10 +3,12 @@ import static java.lang.Integer.*;
 
 public class HashPipe {
 	private Pipe rootPipe;
+	private Pipe floorPipe;
 	private int N;
 
 	public HashPipe() {
 		rootPipe = new Pipe();
+		floorPipe = new Pipe();
 		N = 0;
 	}
 
@@ -25,10 +27,13 @@ public class HashPipe {
 		if (pipe != null) return pipe.getValue();
 		return null;
 	}
-	
-	// TODO
+
 	public String floor(String key) {
-		return null;
+		if (!floorPipe.getKey().equals(key)) {
+			Pipe pipe = getPipeFromReference(rootPipe, key, rootPipe.getHeight() -1);
+			return (pipe != null && pipe.getKey().equals(key)) ? pipe.getKey() : floorPipe.getKey();
+		}
+		return floorPipe.getKey();
 	}
 
 	public String control(String key, int h) {
@@ -55,6 +60,7 @@ public class HashPipe {
 
 	private Pipe getPipeFromReference(Pipe p, String key, int height) {
 		if (height < 0) return null;
+		if (p != null) floorPipe = p;
 		if (p.getNextPipe(height) == null)
 			return getPipeFromReference(p, key, height - 1);
 		if (p.getNextPipe(height).getKey().hashCode() > key.hashCode())
@@ -75,7 +81,7 @@ public class HashPipe {
 		private Pipe[] nextPipes;
 
 		public Pipe() {
-			this.key = null;
+			this.key = "";
 			this.value = -1;
 			this.height = 32;
 			this.nextPipes = new Pipe[32];

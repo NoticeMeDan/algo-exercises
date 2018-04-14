@@ -12,8 +12,9 @@ public class Exp {
 		hashpipe.put("B", 33);
 		hashpipe.put("C", 33);
 		hashpipe.put("D", 33);
+		hashpipe.put("J", 33);
 		
-		StdOut.println(hashpipe.control("D", 4));
+		StdOut.println(hashpipe.floor("Q"));
 	}
 
 	private static Integer testHeight(String key) {
