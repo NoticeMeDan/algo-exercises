@@ -1,3 +1,38 @@
+/******************************************************************************
+ *  Compilation:  javac MergeBU.java
+ *  Execution:    java MergeBU < input.txt
+ *  Dependencies: StdOut.java StdIn.java
+ *  Data files:   https://algs4.cs.princeton.edu/22mergesort/tiny.txt
+ *                https://algs4.cs.princeton.edu/22mergesort/words3.txt
+ *   
+ *  Sorts a sequence of strings from standard input using
+ *  bottom-up mergesort.
+ *   
+ *  % more tiny.txt
+ *  S O R T E X A M P L E
+ *
+ *  % java MergeBU < tiny.txt
+ *  A E E L M O P R S T X                 [ one string per line ]
+ *    
+ *  % more words3.txt
+ *  bed bug dad yes zoo ... all bad yet
+ *  
+ *  % java MergeBU < words3.txt
+ *  all bad bed bug dad ... yes yet zoo    [ one string per line ]
+ *
+ ******************************************************************************/
+
+/**
+ *  The {@code MergeBU} class provides static methods for sorting an
+ *  array using bottom-up mergesort.
+ *  <p>
+ *  For additional documentation, see <a href="https://algs4.cs.princeton.edu/21elementary">Section 2.1</a> of
+ *  <i>Algorithms, 4th Edition</i> by Robert Sedgewick and Kevin Wayne.
+ *
+ *  @author Robert Sedgewick
+ *  @author Kevin Wayne
+ */
+import java.util.*;
 import edu.princeton.cs.algs4.*;
 
 public class MergeBU {
@@ -49,6 +84,7 @@ public class MergeBU {
         return v.compareTo(w) < 0;
     }
 
+
    /***************************************************************************
     *  Check if array is sorted - useful for debugging.
     ***************************************************************************/
@@ -74,6 +110,6 @@ public class MergeBU {
     public static void main(String[] args) {
         String[] a = StdIn.readAllStrings();
         MergeBU.sort(a);
-        show(a);
+        //show(a);
     }
 }

@@ -2,73 +2,91 @@ import java.util.*;
 import edu.princeton.cs.algs4.*;
 
 public class Runsort {
-    private static Comparable[] aux;
+  private static Comparable[] aux;
 
-    public static void sort(Comparable[] a) {
-        aux = new Comparable[a.length];
-        sortFrom(a, 0);
+  private Runsort() {}
+
+  //// From https://algs4.cs.princeton.edu/22mergesort/MergeBU.java.html   
+  public static void sort(Comparable[] a, int startIndex) {
+    aux = new Comparable[a.length];
+    int lo = startIndex, hi;
+    int mid = Runsort.getRun(a, lo); //Getting the index, when the order of characters isn't increasing anymore
+
+    if(mid < a.length - 1){ //Making sure that the list isn't sorted
+      hi = Runsort.getRun(a, mid + 1);
+      Runsort.merge(a, lo, mid, hi);
+      if(hi < a.length - 1){ //Checking if we can make another run
+        Runsort.sort(a, hi + 1); //recursive call
+      }
+    
+    }
+  }
+
+  private static int getRun(Comparable[] a, int startIndex){
+    int index = startIndex; 
+    while(index < a.length - 1 && less(a[index], a[index+1])){
+      index++;
+    }
+    return index;
+  }
+
+  // From https://algs4.cs.princeton.edu/22mergesort/MergeBU.java.html
+  private static void merge(Comparable[] a, int lo, int mid, int hi) {
+    // copy to aux[]
+    for (int k = lo; k <= hi; k++) {
+      aux[k] = a[k];
     }
 
-    // Sort the list starting from index "lo"
-    private static void sortFrom(Comparable[] a, int lo) {
-        while (true) {  // The JVM can't properly handle recursion, so we do this instead
-            int mid, hi;
-            mid = Runsort.getRun(a, lo);
-            if (mid < a.length - 1) {   //does the first run end before the last element?
-                hi = Runsort.getRun(a, mid + 1);
-                Runsort.merge(a, lo, mid, hi);
-                if (hi < a.length - 1)  //does the second run end before the last element?
-                    lo = hi + 1; continue; //(recurse) Runsort.sortFrom(a, hi + 1);
-            } else if (lo == 0 && mid == a.length - 1) {    // a single run from start to end?
-                return; // the list is already sorted
-            }
-            lo = 0; //(recurse) Runsort.sort(a);
-        }
+    // merge back to a[]
+    int i = lo, j = mid+1;
+    for (int k = lo; k <= hi; k++) {
+      if      (i > mid)              a[k] = aux[j++];  // this copying is unneccessary
+      else if (j > hi)               a[k] = aux[i++];
+      else if (less(aux[j], aux[i])) a[k] = aux[j++];
+      else                           a[k] = aux[i++];
     }
+  }
 
-    // Return the index "i" for which a[startIdx..i] is sorted
-    //  (for all indices i > 0; a[i-1] <= a[i])
-    private static int getRun(Comparable[] a, int startIdx) {
-        int i = startIdx;
-        while (i < a.length-1 && a[i].compareTo(a[i+1]) < 1) {
-            i++;
-        }
-        return i;
+  /***************************************************************************
+  Helper sorting functions.
+  Taken from https://algs4.cs.princeton.edu/22mergesort/MergeBU.java.html
+  ***************************************************************************/
+
+  // is v < w ?
+  private static boolean less(Comparable v, Comparable w) {
+    return v.compareTo(w) < 0;
+  }
+
+
+  /***************************************************************************
+  *  Check if array is sorted - useful for debugging.
+  Taken from https://algs4.cs.princeton.edu/22mergesort/MergeBU.java.html
+  ***************************************************************************/
+  private static boolean isSorted(Comparable[] a) {
+    for (int i = 1; i < a.length; i++)
+      if (less(a[i], a[i-1])) return false;
+    return true;
+  }
+
+  //Taken from https://algs4.cs.princeton.edu/22mergesort/MergeBU.java.html
+  // print array to standard output
+  private static void show(Comparable[] a) {
+    for (int i = 0; i < a.length; i++) {
+      StdOut.println(a[i]);
     }
+  }
 
-    private static boolean less(Comparable v, Comparable w) {
-        return v.compareTo(w) < 0;
-    }
+  /**
+  * Reads in a sequence of strings from standard input; bottom-up
+  * mergesorts them; and prints them to standard output in ascending order. 
+  *
+  * @param args the command-line arguments
+  */
 
-    // From https://algs4.cs.princeton.edu/22mergesort/MergeBU.java.html
-    private static void merge(Comparable[] a, int lo, int mid, int hi) {
-        // copy to aux[]
-        for (int k = lo; k <= hi; k++) {
-            aux[k] = a[k];
-        }
-
-        // merge back to a[]
-        int i = lo, j = mid+1;
-        for (int k = lo; k <= hi; k++) {
-            if      (i > mid)              a[k] = aux[j++];  // this copying is unneccessary
-            else if (j > hi)               a[k] = aux[i++];
-            else if (less(aux[j], aux[i])) a[k] = aux[j++];
-            else                           a[k] = aux[i++];
-        }
-    }
-
-    // From https://algs4.cs.princeton.edu/22mergesort/MergeBU.java.html
-    public static void main(String[] args) {
-        String[] a = StdIn.readAllStrings();
-        Runsort.sort(a);
-        show(a);
-    }
-
-    // From https://algs4.cs.princeton.edu/22mergesort/MergeBU.java.html
-    private static void show(Comparable[] a) {
-        for (int i = 0; i < a.length; i++) {
-            StdOut.println(a[i]);
-        }
-    }
-
+  //Taken from https://algs4.cs.princeton.edu/22mergesort/MergeBU.java.html
+  public static void main(String[] args) {
+    String[] a = StdIn.readAllStrings();
+    Runsort.sort(a, 0);
+    show(a);
+  }
 }
