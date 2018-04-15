@@ -7,7 +7,7 @@ public class HashPipe {
 
 	public HashPipe() {
 		this.rootPipe = new Pipe();
-		//this.floorPipe = new Pipe();
+		this.floorPipe = new Pipe();
 		this.size = 0;
 	}
 
@@ -29,14 +29,11 @@ public class HashPipe {
 		return pipe.isPresent() ? pipe.get().getValue() : null;
 	}
 
-//    // Largest key less than or equal to key
-//    public String floor(String key) {
-//        if (!floorPipe.getKey().equals(key)) {
-//            Pipe pipe = getPipe(rootPipe, key, rootPipe.getHeight() -1);
-//            return (pipe != null && pipe.getKey().equals(key)) ? pipe.getKey() : floorPipe.getKey();
-//        }
-//        return floorPipe.getKey();
-//    }
+    // Largest key less than or equal to key
+	public String floor(String key) {
+		Optional<Pipe> pipe = getPipe(rootPipe, key, rootPipe.getHeight() -1);
+		return pipe.isPresent() && pipe.get().getKey().equals(key) ? pipe.get().getKey() : this.floorPipe.getKey();
+	}
 
 	// Return content of pipe at given key and height
 	public String control(String key, int h) {
@@ -58,10 +55,10 @@ public class HashPipe {
 			from.setNextPipe(to, height);
 			insertPipe(from, to, height - 1);
 		} else {
-			if (this.keyIsBefore(nextPipe.get().getKey(), to.getKey())) {
+			if (this.keyIsLessThan(nextPipe.get().getKey(), to.getKey())) {
 				this.insertPipe(nextPipe.get(), to, height);
 			}
-			else if (this.keyIsAfter(nextPipe.get().getKey(), to.getKey())) {
+			else if (this.keyIsLargerThan(nextPipe.get().getKey(), to.getKey())) {
 				to.setNextPipe(nextPipe.get(), height);
 				from.setNextPipe(to, height);
 				this.insertPipe(from, to, height - 1);
@@ -76,21 +73,22 @@ public class HashPipe {
 
 		if (!nextPipe.isPresent()) { return getPipe(from, key, height - 1); }
 		else {
-			if (this.keyIsBefore(nextPipe.get().getKey(), key)) {
+			this.floorPipe = from;
+			if (this.keyIsLessThan(nextPipe.get().getKey(), key)) {
 				return getPipe(nextPipe.get(), key, height);
 			}
-			else if (this.keyIsAfter(nextPipe.get().getKey(), key)) {
+			else if (this.keyIsLargerThan(nextPipe.get().getKey(), key)) {
 				return getPipe(from, key, height - 1);
 			}
 			else return nextPipe;
 		}
 	}
 
-	private boolean keyIsAfter(String a, String b) {
+	private boolean keyIsLargerThan(String a, String b) {
 		return a.compareTo(b) > 0;
 	}
 
-	private boolean keyIsBefore(String a, String b) {
+	private boolean keyIsLessThan(String a, String b) {
 		return a.compareTo(b) < 0;
 	}
 
