@@ -58,10 +58,10 @@ public class HashPipe {
 			from.setNextPipe(to, height);
 			insertPipe(from, to, height - 1);
 		} else {
-			if (nextPipe.get().getKey().compareTo(to.getKey()) < 0) {
+			if (this.keyIsBefore(nextPipe.get().getKey(), to.getKey())) {
 				this.insertPipe(nextPipe.get(), to, height);
 			}
-			else if (nextPipe.get().getKey().compareTo(to.getKey()) > 0) {
+			else if (this.keyIsAfter(nextPipe.get().getKey(), to.getKey())) {
 				to.setNextPipe(nextPipe.get(), height);
 				from.setNextPipe(to, height);
 				this.insertPipe(from, to, height - 1);
@@ -76,14 +76,22 @@ public class HashPipe {
 
 		if (!nextPipe.isPresent()) { return getPipe(from, key, height - 1); }
 		else {
-			if (nextPipe.get().getKey().compareTo(key) < 0) {
+			if (this.keyIsBefore(nextPipe.get().getKey(), key)) {
 				return getPipe(nextPipe.get(), key, height);
 			}
-			else if (nextPipe.get().getKey().compareTo(key) > 0) {
+			else if (this.keyIsAfter(nextPipe.get().getKey(), key)) {
 				return getPipe(from, key, height - 1);
 			}
 			else return nextPipe;
 		}
+	}
+
+	private boolean keyIsAfter(String a, String b) {
+		return a.compareTo(b) > 0;
+	}
+
+	private boolean keyIsBefore(String a, String b) {
+		return a.compareTo(b) < 0;
 	}
 
 	private int getPipeHeight(String key) {
