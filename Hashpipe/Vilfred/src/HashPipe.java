@@ -50,7 +50,7 @@ public class HashPipe{
 
     return height;
   }
-  
+
   // returns the contents of the pipe of the given key at the
   // given height h, counting from below and starting with 0.
   public String control(String key, int h){
