@@ -1,19 +1,40 @@
 import edu.princeton.cs.algs4.*;
+import java.util.*;
+import java.text.DecimalFormat;
 
 public class SeqAnalyser {
-	public static void main(String[] args) {
-		while(!StdIn.isEmpty()) {
-			StdOut.println(StdIn.readLine());
-		}
+	private int d = 10000;
+	private int k = 20;
+
+	public String compareDNA(String sequenceP, String sequenceQ) {
+		DecimalFormat df = new DecimalFormat("#.###");
+		int[] vectorP = vectorFromSequence(sequenceP);
+		int[] vectorQ = vectorFromSequence(sequenceQ);
+		return df.format(cosAngle(vectorP, vectorQ));
 	}
 
-	private static double cosAngle(int[] p, int[] q) {
-		if (p.length != q.length) return 0.0;
+	private int[] vectorFromSequence(String sequence) {
+		int[] vector = new int[this.d];
+		String kGram;
+
+		for (int i = 0; i + this.k < sequence.length(); i++) {
+			kGram = sequence.substring(i, i + this.k);
+			vector[kGramHash(kGram)]++;
+		}
+
+		return vector;
+	}
+
+	private int kGramHash(String s) {
+		return Math.abs(s.hashCode() % this.d);
+	}
+
+	private double cosAngle(int[] p, int[] q) {
 		double dotProduct = 0;
 		double vectorPowsP = 0;
 		double vectorPowsQ = 0;
 
-		for (int i = 0; i < p.length; i++) { 
+		for (int i = 0; i < this.d; i++) {
 			dotProduct += (p[i] * q[i]);
 			vectorPowsP += Math.pow(p[i], 2);
 			vectorPowsQ += Math.pow(q[i], 2);
@@ -22,7 +43,7 @@ public class SeqAnalyser {
 		return dotProduct / (Math.sqrt(vectorPowsP) * Math.sqrt(vectorPowsQ));
 	}
 
-	private static void cosineTest() {
+	private void cosineTest() {
 		int[] p1 = new int[] {0, 1};
 		int[] q1 = new int[] {0, 1};
 		StdOut.println("Expected: 1 :: " + cosAngle(p1, q1));
