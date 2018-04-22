@@ -14,7 +14,7 @@ public class CompareDNA{
     this.species  = species;
     this.dna      = dna;
   }
-
+  //Hej Magnus
   public double compare(int[] p, int[] q){
     return cosAngle(p, q);
   }
