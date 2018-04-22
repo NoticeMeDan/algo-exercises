@@ -55,6 +55,23 @@ public class SeqAnalyser {
 		int[] p3 = new int[] {4, -3};
 		int[] q3 = new int[] {2, 2};
 		StdOut.println("Expected: ~0.1414 :: " + cosAngle(p3, q3));
+
+		int[] p4 = new int[] {0, 1};
+		int[] q4 = new int[] {0, 2};
+		StdOut.println("Expected: something :: " + cosAngle(p4, q4));
+
+		int[] p5 = new int[] {0, 1};
+		int[] q5 = new int[] {1, 0};
+		StdOut.println("Expected: something :: " + cosAngle(p5, q5));
+
+		int[] p6 = new int[] {0, 1};
+		int[] q6 = new int[] {0, -1};
+		StdOut.println("Expected: something :: " + cosAngle(p5, q5));
+	}
+
+	public static void main(String[] args) {
+		SeqAnalyser seq = new SeqAnalyser();
+		seq.cosineTest();
 	}
 }
 
