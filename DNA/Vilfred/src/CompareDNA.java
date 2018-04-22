@@ -67,7 +67,7 @@ public class CompareDNA {
         public void printComparisons () {
             System.out.println("._______________________________________________________________________.");
             String format = "|%1$-10s		|%2$-10s 		|  %3$-20s |\n";
-            System.out.format(format, "Specie 2", "Specie 2", "DNA match");
+            System.out.format(format, "Specie 1", "Specie 2", "DNA match");
             System.out.println("+=======================================================================+");
 
             if (this.species.size() == this.dna.size()) {
