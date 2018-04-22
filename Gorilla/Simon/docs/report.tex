@@ -1,0 +1,88 @@
+\documentclass{tufte-handout}
+\usepackage{amsmath}
+\pagestyle{empty}
+\usepackage[utf8]{inputenc}
+\usepackage{mathpazo}
+\usepackage{booktabs}
+\usepackage{microtype}
+\usepackage{xcolor}
+
+\usepackage{tikz}
+\usetikzlibrary{matrix}
+\usetikzlibrary{chains}
+\usetikzlibrary{decorations}
+
+\title{Gorilla--Sea Cucumber Hash Report}
+\author{Elias Jørgensen and Simon Høiberg}
+
+
+\begin{document}
+
+\maketitle
+
+  \subsection{Results}
+
+  The following table gives the similarity between each pair of species as a number between 0 and 1, higher values meaning ``more similar''.
+  We have used the hash function $h(S) = |\#S \mod{d}|$ (where \#S is the Java hashcode of string S) with  $d=10000$ and $k$-grams of length $k=20$.
+  As can be seen, the species closest to us is the Gorilla.
+
+  \bigskip\noindent
+  {\small\sf
+  \begin{tabular}{rcccccccccccc}
+  \toprule
+    &Human
+    &Gorilla
+    &Monkey
+    &Horse
+    &Deer
+    &Pig
+    &Cow
+    &Gull
+    &Trout
+    &R. Cod
+    &Lamprey
+    &Sea Cuc.
+    \\\midrule
+  Human & 1 & 0.846 & 0.347 & 0.068 & 0.008 & 0.139 & 0.1 & 0.015 & 0.015 & 0.023 & 0.015 & 0.007 \\
+  Gorilla & 0.846 & 1 & 0.216 & 0.03 & 0.015 & 0.139 & 0.138 & 0.008 & 0.015 & 0.023 & 0.015 & 0  \\
+  Monkey & 0.347 & 0.216 & 1 & 0.053 & 0.008 & 0.14 & 0.093 & 0.054 & 0.008 & 0.015 & 0 & 0.007 \\
+  Horse & 0.068 & 0.03 & 0.053 & 1 & 0.015 & 0.031 & 0.046 & 0.023 & 0.031 & 0.015 & 0.007 & 0.029 \\
+  Deer & 0.008 & 0.015 & 0.008 & 0.015 & 1 & 0.015 & 0 & 0.008 & 0.023 & 0.008 & 0.022 & 0.014 \\
+  Pig & 0.139 & 0.139 & 0.14 & 0.031 & 0.015 & 1 & 0.085 & 0.023 & 0 & 0.008 & 0.008 & 0 \\
+  Cow & 0.1 & 0.138 & 0.093 & 0.046 & 0 & 0.085 & 1 & 0.023 & 0 & 0 & 0.008 & 0.007 \\
+  Gull & 0.015 & 0.008 & 0.054 & 0.023 & 0.008 & 0.023 & 0.023 & 1  & 0.008 & 0.023 & 0.008 & 0.007 \\
+  Trout & 0.015 & 0.015 & 0.008 & 0.031 & 0.023 & 0 & 0 & 0.008 & 1 & 0.008 & 0.008 & 0.015 \\
+  R. Cod & 0.023 & 0.023 & 0.015 & 0.015 & 0.008 & 0.008 & 0 & 0.023 & 0.008 & 1 & 0 & 0.043 \\
+  Lamprey & 0.015 & 0.015 & 0 & 0.007 & 0.022 & 0.008 & 0.008 & 0.008 & 0.008 & 0 & 1 & 0 \\
+  Sea Cuc. & 0.007 & 0 & 0.007 & 0.029 & 0.014 & 0 & 0.007 & 0.007  & 0.015 & 0.043 & 0 & 1 \\
+  \bottomrule
+  \end{tabular}
+  }
+
+
+  \subsection{Tests}
+
+  Our static method {\tt double cos\_angle(int[] p, int[] q)} computes the cosine of the angle of two vectors of the same length $d$.
+  We have tested it on the following examples:
+
+  \bigskip\noindent
+{ \small\sf
+  \begin{tabular}{cccc}
+  \toprule
+  $p$     & $q$     & $d$ & value returned \\\midrule
+  $(0,1)$ & $(0,1)$ & $2$ & $1$ \\
+  $(0,1)$ & $(0,2)$ & $2$ & $1$\\
+  $(0,1)$ & $(1,0)$ & $2$ & $0$\\
+  $(0,2)$ & $(0,2)$ & $2$ & $1$\\
+  $(4,-3)$ & $(2,2)$ & $2$ & $0,1414$\\
+  $(0,1)$ & $(0,-1)$ & $2$ & $0$\\
+  \bottomrule
+  \end{tabular}
+}
+
+\bigskip
+  Similarly, our static method {\tt length(int[] p)} computes $[\ldots]$.
+  \subsection{Performance}
+  Our Java implementation took 0,04 seconds to compute the above on a late 2015 Macbook Pro.
+
+\end{document}
