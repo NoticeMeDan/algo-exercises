@@ -4,6 +4,7 @@ import java.util.regex.Pattern;
 import java.util.ArrayList;
 import edu.princeton.cs.algs4.*;
 
+<<<<<<< HEAD
 public class CompareDNA {
     private double sum;
     private final int D = 10000;
@@ -13,6 +14,34 @@ public class CompareDNA {
     public CompareDNA(ArrayList<String> species, ArrayList<String> dna){
         this.species  = species;
         this.dna      = dna;
+=======
+public class CompareDNA{
+  private double sum;
+  private final int D = 10000;
+  private final int K = 20;
+  private ArrayList<String> species, dna;
+
+  public CompareDNA(ArrayList<String> species, ArrayList<String> dna){
+    this.species  = species;
+    this.dna      = dna;
+  }
+  //Hej Magnus
+  public double compare(int[] p, int[] q){
+    return cosAngle(p, q);
+  }
+
+  public double compareTwodna(String seq1, String seq2){
+    return compare(dnaToVector(seq1), dnaToVector(seq2));
+  }
+
+  public int[] dnaToVector(String dna){
+    int[] result = new int[this.D];
+    String subString = null;
+
+    for(int i = 0; i + this.K < dna.length(); i++){
+      subString = dna.substring(i, this.K + i);
+      result[hashFunc(subString)] ++;
+>>>>>>> 2d5bde2b1bb9f832e61da0f56b00d8ed6cc9546a
     }
 
     public double compare(int[] p, int[] q){
